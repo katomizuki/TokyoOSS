@@ -20,6 +20,8 @@
 		D3C669342750462400DA7B2A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D3C669332750462400DA7B2A /* RxCocoa */; };
 		D3C669362750462400DA7B2A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = D3C669352750462400DA7B2A /* RxRelay */; };
 		D3C669382750462400DA7B2A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3C669372750462400DA7B2A /* RxSwift */; };
+		D3C6693C27504F0D00DA7B2A /* TimeLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */; };
+		D3C6693D27504F0D00DA7B2A /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		D3C6692B2750419D00DA7B2A /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D3C6692E275044CE00DA7B2A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		D3C66930275044E700DA7B2A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineCell.swift; sourceTree = "<group>"; };
+		D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeLineCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		D3C669202750406400DA7B2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3C6693927504EBC00DA7B2A /* Cells */,
 				D3C669282750411F00DA7B2A /* ViewControllers */,
 				D3C669242750408F00DA7B2A /* Storyboard */,
 			);
@@ -147,6 +152,15 @@
 				D3C669122750402500DA7B2A /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		D3C6693927504EBC00DA7B2A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */,
+				D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3C6693D27504F0D00DA7B2A /* TimeLineCell.xib in Resources */,
 				D3C669162750402600DA7B2A /* Assets.xcassets in Resources */,
 				D3C669142750402500DA7B2A /* Main.storyboard in Resources */,
 				D3C66927275040D700DA7B2A /* Authentication.storyboard in Resources */,
@@ -232,6 +247,7 @@
 				D3C6692F275044CE00DA7B2A /* PostViewController.swift in Sources */,
 				D3C6692A2750415400DA7B2A /* RegisterController.swift in Sources */,
 				D3C669112750402500DA7B2A /* ViewController.swift in Sources */,
+				D3C6693C27504F0D00DA7B2A /* TimeLineCell.swift in Sources */,
 				D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */,
 				D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */,
 				D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */,
