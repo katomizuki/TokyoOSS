@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TokyoOSS
-//
-//  Created by ミズキ on 2021/11/26.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
