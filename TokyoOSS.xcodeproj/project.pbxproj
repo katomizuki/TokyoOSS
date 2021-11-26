@@ -16,6 +16,9 @@
 		D37097B52750F713006C8A72 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097B42750F713006C8A72 /* TextField+Extension.swift */; };
 		D37097B8275103BA006C8A72 /* UserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37097B7275103BA006C8A72 /* UserHeaderView.xib */; };
 		D37097BA27510403006C8A72 /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097B927510403006C8A72 /* UserHeaderView.swift */; };
+		D37097BD27511051006C8A72 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097BC27511051006C8A72 /* Coordinator.swift */; };
+		D37097BF27511073006C8A72 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097BE27511073006C8A72 /* AuthCoordinator.swift */; };
+		D37097C1275110AF006C8A72 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097C0275110AF006C8A72 /* MainCoordinator.swift */; };
 		D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6690C2750402500DA7B2A /* AppDelegate.swift */; };
 		D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6690E2750402500DA7B2A /* SceneDelegate.swift */; };
 		D3C669112750402500DA7B2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C669102750402500DA7B2A /* ViewController.swift */; };
@@ -46,6 +49,9 @@
 		D37097B42750F713006C8A72 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		D37097B7275103BA006C8A72 /* UserHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserHeaderView.xib; sourceTree = "<group>"; };
 		D37097B927510403006C8A72 /* UserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderView.swift; sourceTree = "<group>"; };
+		D37097BC27511051006C8A72 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D37097BE27511073006C8A72 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		D37097C0275110AF006C8A72 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		D3C669092750402500DA7B2A /* TokyoOSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokyoOSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C6690C2750402500DA7B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C6690E2750402500DA7B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,16 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		D37097BB27511041006C8A72 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D37097BC27511051006C8A72 /* Coordinator.swift */,
+				D37097BE27511073006C8A72 /* AuthCoordinator.swift */,
+				D37097C0275110AF006C8A72 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		D3C669002750402500DA7B2A = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +138,7 @@
 				D3C6690C2750402500DA7B2A /* AppDelegate.swift */,
 				D3C6690E2750402500DA7B2A /* SceneDelegate.swift */,
 				D3C669152750402600DA7B2A /* Assets.xcassets */,
+				D37097BB27511041006C8A72 /* Coordinator */,
 				D3C669232750407300DA7B2A /* Extenstion */,
 				D3C669222750406E00DA7B2A /* ViewModels */,
 				D3C669212750406900DA7B2A /* Models */,
@@ -371,6 +388,8 @@
 				D37097B12750D1ED006C8A72 /* PostViewModel.swift in Sources */,
 				D3C6694927508FC900DA7B2A /* CustomButton.swift in Sources */,
 				D3C66931275044E700DA7B2A /* UserViewController.swift in Sources */,
+				D37097BF27511073006C8A72 /* AuthCoordinator.swift in Sources */,
+				D37097C1275110AF006C8A72 /* MainCoordinator.swift in Sources */,
 				D3C6692F275044CE00DA7B2A /* PostViewController.swift in Sources */,
 				D3C6692A2750415400DA7B2A /* RegisterController.swift in Sources */,
 				D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */,
@@ -379,6 +398,7 @@
 				D37097B52750F713006C8A72 /* TextField+Extension.swift in Sources */,
 				D37097BA27510403006C8A72 /* UserHeaderView.swift in Sources */,
 				D3C669452750807500DA7B2A /* RegisterViewModel.swift in Sources */,
+				D37097BD27511051006C8A72 /* Coordinator.swift in Sources */,
 				D3C6693C27504F0D00DA7B2A /* TimeLineCell.swift in Sources */,
 				D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */,
 				D3C6693F2750544E00DA7B2A /* Post.swift in Sources */,
