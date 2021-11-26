@@ -9,8 +9,8 @@ protocol LoginViewModelOutputs {
     var isLogin:Driver<Bool> { get }
     var toMain:PublishRelay<Void> { get }
     var toRegister:PublishRelay<Void> { get }
-    var emailButtonHidden:Bool { get }
-    var passwordButtonHidden:Bool { get }
+    var isEmailButtonHidden:Bool { get }
+    var isPasswordButtonHidden:Bool { get }
     var emailBorderColor:CGColor { get }
     var passwordBorderColor:CGColor { get }
 }
@@ -26,10 +26,10 @@ final class LoginViewModel:LoginViewModelType,LoginViewModelInputs,LoginViewMode
     var inputs: LoginViewModelInputs { return self }
     var emailTextField = BehaviorRelay<String>(value: "")
     var passwordTextField = BehaviorRelay<String>(value: "")
-    var emailButtonHidden:Bool {
+    var isEmailButtonHidden:Bool {
         return emailTextField.value.count <= 0
     }
-    var passwordButtonHidden: Bool {
+    var isPasswordButtonHidden: Bool {
         return passwordTextField.value.count <= 0
     }
     var emailBorderColor: CGColor {

@@ -18,22 +18,10 @@ class LoginController: UIViewController {
         setupUI()
     }
     private func setupUI() {
-        let emailRightView = UIView()
-        emailRightView.setDimensions(height: 40, width: 40)
-        emailTextField.rightView = emailRightView
-        emailTextField.rightViewMode = .always
-        emailRightView.addSubview(emailDeleteButton)
-        emailDeleteButton.setDimensions(height: 40, width: 40)
-        let passwordRightView = UIView()
-        passwordRightView.setDimensions(height: 40, width: 40)
-        passwordTextField.rightView = passwordRightView
-        passwordTextField.rightViewMode = .always
-        passwordRightView.addSubview(passwordDeleteButton)
-        passwordDeleteButton.setDimensions(height: 40, width: 40)
-        passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
-        passwordTextField.layer.borderWidth = 1
-        emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = UIColor.darkGray.cgColor
+        updateAuthencationTextField(tf: emailTextField, button: emailDeleteButton)
+        updateAuthencationTextField(tf: passwordTextField, button: passwordDeleteButton)
+        passwordTextField.updateAuthTextFieldUI()
+        emailTextField.updateAuthTextFieldUI()
     }
     private func setupBinding() {
         // Inputs
@@ -41,13 +29,13 @@ class LoginController: UIViewController {
         
         passwordTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
             viewModel.inputs.passwordTextField.accept(text ?? "")
-            self?.passwordDeleteButton.isHidden = viewModel.outputs.passwordButtonHidden
+            self?.passwordDeleteButton.isHidden = viewModel.outputs.isPasswordButtonHidden
             self?.passwordTextField.layer.borderColor = viewModel.outputs.passwordBorderColor
         }).disposed(by: disposeBag)
         
         emailTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
             viewModel.inputs.emailTextField.accept(text ?? "")
-            self?.emailDeleteButton.isHidden = viewModel.outputs.emailButtonHidden
+            self?.emailDeleteButton.isHidden = viewModel.outputs.isEmailButtonHidden
             self?.emailTextField.layer.borderColor = viewModel.outputs.emailBorderColor
         }).disposed(by: disposeBag)
         
