@@ -54,12 +54,14 @@ class LoginController: UIViewController {
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 self?.passwordDeleteButton.isHidden = false
+                self?.passwordTextField.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
         
         emailTextField.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 self?.emailDeleteButton.isHidden = false
+                self?.emailTextField.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
         
         // Outputs
@@ -88,6 +90,5 @@ class LoginController: UIViewController {
         passwordDeleteButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
             self?.passwordTextField.text = ""
         }).disposed(by: disposeBag)
-        
     }
 }

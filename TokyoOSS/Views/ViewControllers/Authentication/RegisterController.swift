@@ -95,19 +95,34 @@ class RegisterController: UIViewController {
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 self?.passwordDeleteButton.isHidden = false
+                self?.passwordTextField.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
         
         emailTextField.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 self?.emailDeleteButton.isHidden = false
+                self?.emailTextField.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
         
         nameTextField.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 self?.nameDeleteButton.isHidden = false
+                self?.nameTextField.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
+        
+        emailDeleteButton.rx.tap.asDriver().drive(onNext:{ [weak self] _ in
+            self?.emailTextField.text = ""
+        }).disposed(by: disposeBag)
+        
+        passwordDeleteButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+            self?.passwordTextField.text = ""
+        }).disposed(by: disposeBag)
+        
+        nameDeleteButton.rx.tap.asDriver().drive(onNext:{ [weak self] _ in
+            self?.nameTextField.text = ""
+        }).disposed(by: disposeBag)
 
 
     }
