@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		60611572FF3C3EB7A78D3252 /* Pods_TokyoOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */; };
+		D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AA2750BECE006C8A72 /* ArticleCell.swift */; };
+		D37097AD2750BECE006C8A72 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37097AB2750BECE006C8A72 /* ArticleCell.xib */; };
+		D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AE2750BF1A006C8A72 /* UserViewModel.swift */; };
 		D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6690C2750402500DA7B2A /* AppDelegate.swift */; };
 		D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6690E2750402500DA7B2A /* SceneDelegate.swift */; };
 		D3C669112750402500DA7B2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C669102750402500DA7B2A /* ViewController.swift */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		1DA6743BD50AB980F522C145 /* Pods-TokyoOSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.debug.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.debug.xcconfig"; sourceTree = "<group>"; };
 		8DC8920F31A2B6DCCA014DE5 /* Pods-TokyoOSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.release.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.release.xcconfig"; sourceTree = "<group>"; };
+		D37097AA2750BECE006C8A72 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
+		D37097AB2750BECE006C8A72 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
+		D37097AE2750BF1A006C8A72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		D3C669092750402500DA7B2A /* TokyoOSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokyoOSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C6690C2750402500DA7B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C6690E2750402500DA7B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 			children = (
 				D3C669422750735000DA7B2A /* LoginViewModel.swift */,
 				D3C669442750807500DA7B2A /* RegisterViewModel.swift */,
+				D37097AE2750BF1A006C8A72 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,6 +187,8 @@
 			children = (
 				D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */,
 				D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */,
+				D37097AA2750BECE006C8A72 /* ArticleCell.swift */,
+				D37097AB2750BECE006C8A72 /* ArticleCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -280,6 +289,7 @@
 				D3C6693D27504F0D00DA7B2A /* TimeLineCell.xib in Resources */,
 				D3C669162750402600DA7B2A /* Assets.xcassets in Resources */,
 				D3C669142750402500DA7B2A /* Main.storyboard in Resources */,
+				D37097AD2750BECE006C8A72 /* ArticleCell.xib in Resources */,
 				D3C66927275040D700DA7B2A /* Authentication.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +347,7 @@
 				D3C66931275044E700DA7B2A /* UserViewController.swift in Sources */,
 				D3C6692F275044CE00DA7B2A /* PostViewController.swift in Sources */,
 				D3C6692A2750415400DA7B2A /* RegisterController.swift in Sources */,
+				D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */,
 				D3C669112750402500DA7B2A /* ViewController.swift in Sources */,
 				D3C6694727508BA800DA7B2A /* Anchor+Extension.swift in Sources */,
 				D3C669452750807500DA7B2A /* RegisterViewModel.swift in Sources */,
@@ -345,6 +356,7 @@
 				D3C6693F2750544E00DA7B2A /* Post.swift in Sources */,
 				D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */,
 				D3C669432750735000DA7B2A /* LoginViewModel.swift in Sources */,
+				D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */,
 				D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,7 +504,7 @@
 				INFOPLIST_FILE = TokyoOSS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -521,7 +533,7 @@
 				INFOPLIST_FILE = TokyoOSS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
