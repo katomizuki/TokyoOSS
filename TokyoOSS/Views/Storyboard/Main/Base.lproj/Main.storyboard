@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--ホーム-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TokyoOSS" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,41 +38,48 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ND4-b8-ogJ">
-                                <rect key="frame" x="295" y="538" width="50" height="50"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tqd-PX-21p">
+                                <rect key="frame" x="295" y="538" width="50" height="48.5"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="V21-VW-CZG"/>
-                                    <constraint firstAttribute="height" constant="50" id="iyP-oJ-ajz"/>
+                                    <constraint firstAttribute="height" constant="50" id="Jsk-o3-Lcv"/>
+                                    <constraint firstAttribute="width" constant="50" id="rRf-kC-AiD"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemGray6Color"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="">
-                                    <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
-                                </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Uyb-Ad-0LL" kind="presentation" id="9uX-m3-gc6"/>
+                                    <outletCollection property="gestureRecognizers" destination="BLA-27-w1i" appends="YES" id="6LI-4o-PqG"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ND4-b8-ogJ" secondAttribute="bottom" constant="30" id="0HW-1L-Yu1"/>
                             <constraint firstItem="oyr-Ey-muW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2qZ-G3-O8k"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oyr-Ey-muW" secondAttribute="bottom" id="CRM-ub-Nus"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ND4-b8-ogJ" secondAttribute="trailing" constant="30" id="Px3-jX-odZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tqd-PX-21p" secondAttribute="trailing" constant="30" id="MT2-EW-clj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oyr-Ey-muW" secondAttribute="trailing" id="XGW-TQ-rNn"/>
                             <constraint firstItem="oyr-Ey-muW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XpM-t7-0Vt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tqd-PX-21p" secondAttribute="bottom" constant="30" id="c6b-e4-ZCK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="vaM-ZJ-ogd"/>
+                    <tabBarItem key="tabBarItem" title="ホーム" id="vaM-ZJ-ogd">
+                        <imageReference key="image" image="homekit" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="collectionView" destination="oyr-Ey-muW" id="5DE-o4-WW1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BLA-27-w1i">
+                    <connections>
+                        <segue destination="Uyb-Ad-0LL" kind="presentation" id="r7u-tA-VJI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1204" y="13.943028485757123"/>
         </scene>
-        <!--Item-->
+        <!--アカウント-->
         <scene sceneID="dEp-KR-5qP">
             <objects>
                 <viewController storyboardIdentifier="UserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tAp-vv-bpL" customClass="UserViewController" customModule="TokyoOSS" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,7 +89,9 @@
                         <viewLayoutGuide key="safeArea" id="q0f-Du-6xf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="PmP-Vy-Pug"/>
+                    <tabBarItem key="tabBarItem" title="アカウント" id="PmP-Vy-Pug">
+                        <imageReference key="image" image="person.circle.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFj-zv-pqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,8 +119,10 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rup-LY-LpF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9aI-Tb-zHB">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DxX-Gv-abC"/>
@@ -124,12 +135,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

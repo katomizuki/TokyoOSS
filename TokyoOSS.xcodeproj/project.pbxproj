@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60611572FF3C3EB7A78D3252 /* Pods_TokyoOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */; };
 		D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6690C2750402500DA7B2A /* AppDelegate.swift */; };
 		D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6690E2750402500DA7B2A /* SceneDelegate.swift */; };
 		D3C669112750402500DA7B2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C669102750402500DA7B2A /* ViewController.swift */; };
@@ -17,14 +18,14 @@
 		D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6692B2750419D00DA7B2A /* LoginController.swift */; };
 		D3C6692F275044CE00DA7B2A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6692E275044CE00DA7B2A /* PostViewController.swift */; };
 		D3C66931275044E700DA7B2A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C66930275044E700DA7B2A /* UserViewController.swift */; };
-		D3C669342750462400DA7B2A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D3C669332750462400DA7B2A /* RxCocoa */; };
-		D3C669362750462400DA7B2A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = D3C669352750462400DA7B2A /* RxRelay */; };
-		D3C669382750462400DA7B2A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3C669372750462400DA7B2A /* RxSwift */; };
 		D3C6693C27504F0D00DA7B2A /* TimeLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */; };
 		D3C6693D27504F0D00DA7B2A /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */; };
+		D3C6693F2750544E00DA7B2A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6693E2750544E00DA7B2A /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DA6743BD50AB980F522C145 /* Pods-TokyoOSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.debug.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.debug.xcconfig"; sourceTree = "<group>"; };
+		8DC8920F31A2B6DCCA014DE5 /* Pods-TokyoOSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.release.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.release.xcconfig"; sourceTree = "<group>"; };
 		D3C669092750402500DA7B2A /* TokyoOSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokyoOSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C6690C2750402500DA7B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C6690E2750402500DA7B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +40,8 @@
 		D3C66930275044E700DA7B2A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineCell.swift; sourceTree = "<group>"; };
 		D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeLineCell.xib; sourceTree = "<group>"; };
+		D3C6693E2750544E00DA7B2A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TokyoOSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,20 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3C669382750462400DA7B2A /* RxSwift in Frameworks */,
-				D3C669362750462400DA7B2A /* RxRelay in Frameworks */,
-				D3C669342750462400DA7B2A /* RxCocoa in Frameworks */,
+				60611572FF3C3EB7A78D3252 /* Pods_TokyoOSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFB37F408DADCCCD554622A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3C669002750402500DA7B2A = {
 			isa = PBXGroup;
 			children = (
 				D3C6690B2750402500DA7B2A /* TokyoOSS */,
 				D3C6690A2750402500DA7B2A /* Products */,
+				F0E0569685594220DE1A7952 /* Pods */,
+				AFB37F408DADCCCD554622A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +110,7 @@
 		D3C669212750406900DA7B2A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D3C6693E2750544E00DA7B2A /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +175,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		F0E0569685594220DE1A7952 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DA6743BD50AB980F522C145 /* Pods-TokyoOSS.debug.xcconfig */,
+				8DC8920F31A2B6DCCA014DE5 /* Pods-TokyoOSS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3C6691D2750402600DA7B2A /* Build configuration list for PBXNativeTarget "TokyoOSS" */;
 			buildPhases = (
+				F608E09815BD91D2BDA8C4EA /* [CP] Check Pods Manifest.lock */,
 				D3C669052750402500DA7B2A /* Sources */,
 				D3C669062750402500DA7B2A /* Frameworks */,
 				D3C669072750402500DA7B2A /* Resources */,
+				9A7FDA95F5B383C24A75DE5D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,9 +203,6 @@
 			);
 			name = TokyoOSS;
 			packageProductDependencies = (
-				D3C669332750462400DA7B2A /* RxCocoa */,
-				D3C669352750462400DA7B2A /* RxRelay */,
-				D3C669372750462400DA7B2A /* RxSwift */,
 			);
 			productName = TokyoOSS;
 			productReference = D3C669092750402500DA7B2A /* TokyoOSS.app */;
@@ -238,6 +258,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9A7FDA95F5B383C24A75DE5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F608E09815BD91D2BDA8C4EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TokyoOSS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D3C669052750402500DA7B2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -249,6 +311,7 @@
 				D3C669112750402500DA7B2A /* ViewController.swift in Sources */,
 				D3C6693C27504F0D00DA7B2A /* TimeLineCell.swift in Sources */,
 				D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */,
+				D3C6693F2750544E00DA7B2A /* Post.swift in Sources */,
 				D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */,
 				D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */,
 			);
@@ -386,6 +449,7 @@
 		};
 		D3C6691E2750402600DA7B2A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DA6743BD50AB980F522C145 /* Pods-TokyoOSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -414,6 +478,7 @@
 		};
 		D3C6691F2750402600DA7B2A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DC8920F31A2B6DCCA014DE5 /* Pods-TokyoOSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -473,24 +538,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D3C669332750462400DA7B2A /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3C669322750462400DA7B2A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		D3C669352750462400DA7B2A /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3C669322750462400DA7B2A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		D3C669372750462400DA7B2A /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3C669322750462400DA7B2A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3C669012750402500DA7B2A /* Project object */;
 }
