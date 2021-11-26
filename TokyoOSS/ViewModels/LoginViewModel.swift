@@ -7,6 +7,8 @@ protocol LoginViewModelInputs {
 }
 protocol LoginViewModelOutputs {
     var isLogin:Driver<Bool> { get }
+    var isDeleteEmailButtonHidden:BehaviorRelay<Bool> { get }
+    var isDeletePasswordButtonHidden:BehaviorRelay<Bool> { get }
 }
 protocol LoginViewModelType {
     var outputs:LoginViewModelOutputs { get }
@@ -18,13 +20,17 @@ final class LoginViewModel:LoginViewModelType,LoginViewModelInputs,LoginViewMode
     var inputs: LoginViewModelInputs { return self }
     var emailTextField = BehaviorRelay<String>(value: "")
     var passwordTextField = BehaviorRelay<String>(value: "")
-    var isLogin: Driver<Bool>
+    var isDeletePasswordButtonHidden = BehaviorRelay<Bool>(value: true)
+    var isDeleteEmailButtonHidden = BehaviorRelay<Bool>(value: true)
     
+    var isLogin: Driver<Bool>
     init() {
         isLogin = Observable.combineLatest(emailTextField, passwordTextField)
-            .map({ email,password -> Bool in
+            .map({ (email,password) -> Bool in
                 return Validator.isEnableEmail(email: email) && Validator.isEnablePassWord(password: password)
             }).asDriver(onErrorDriveWith: .empty())
+        isDeleteEmailButtonHidden.accept(emailTextField.value.count > 0)
+        isDeletePasswordButtonHidden.accept(passwordTextField.value.count > 0)
     }
 }
 

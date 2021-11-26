@@ -9,4 +9,5 @@ target 'TokyoOSS' do
 pod 'RxDataSources', '~> 5.0'
 pod 'RxSwift', '6.2.0'
 pod 'RxCocoa', '6.2.0'
+pod "RxGesture"
 end

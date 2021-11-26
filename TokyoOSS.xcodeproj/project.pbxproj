@@ -22,6 +22,9 @@
 		D3C6693D27504F0D00DA7B2A /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */; };
 		D3C6693F2750544E00DA7B2A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6693E2750544E00DA7B2A /* Post.swift */; };
 		D3C669432750735000DA7B2A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C669422750735000DA7B2A /* LoginViewModel.swift */; };
+		D3C669452750807500DA7B2A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C669442750807500DA7B2A /* RegisterViewModel.swift */; };
+		D3C6694727508BA800DA7B2A /* Anchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6694627508BA800DA7B2A /* Anchor+Extension.swift */; };
+		D3C6694927508FC900DA7B2A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6694827508FC900DA7B2A /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeLineCell.xib; sourceTree = "<group>"; };
 		D3C6693E2750544E00DA7B2A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D3C669422750735000DA7B2A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D3C669442750807500DA7B2A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		D3C6694627508BA800DA7B2A /* Anchor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anchor+Extension.swift"; sourceTree = "<group>"; };
+		D3C6694827508FC900DA7B2A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TokyoOSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +111,7 @@
 				D3C6693927504EBC00DA7B2A /* Cells */,
 				D3C669282750411F00DA7B2A /* ViewControllers */,
 				D3C669242750408F00DA7B2A /* Storyboard */,
+				D3C6694827508FC900DA7B2A /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D3C669422750735000DA7B2A /* LoginViewModel.swift */,
+				D3C669442750807500DA7B2A /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 		D3C669232750407300DA7B2A /* Extenstion */ = {
 			isa = PBXGroup;
 			children = (
+				D3C6694627508BA800DA7B2A /* Anchor+Extension.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -324,10 +333,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3C6694927508FC900DA7B2A /* CustomButton.swift in Sources */,
 				D3C66931275044E700DA7B2A /* UserViewController.swift in Sources */,
 				D3C6692F275044CE00DA7B2A /* PostViewController.swift in Sources */,
 				D3C6692A2750415400DA7B2A /* RegisterController.swift in Sources */,
 				D3C669112750402500DA7B2A /* ViewController.swift in Sources */,
+				D3C6694727508BA800DA7B2A /* Anchor+Extension.swift in Sources */,
+				D3C669452750807500DA7B2A /* RegisterViewModel.swift in Sources */,
 				D3C6693C27504F0D00DA7B2A /* TimeLineCell.swift in Sources */,
 				D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */,
 				D3C6693F2750544E00DA7B2A /* Post.swift in Sources */,
@@ -480,7 +492,7 @@
 				INFOPLIST_FILE = TokyoOSS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -509,7 +521,7 @@
 				INFOPLIST_FILE = TokyoOSS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
