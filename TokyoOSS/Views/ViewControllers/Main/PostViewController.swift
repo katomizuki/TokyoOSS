@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-class PostViewController: UIViewController {
+final class PostViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet private weak var pictureButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!

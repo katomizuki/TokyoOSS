@@ -88,13 +88,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D37097B627510302006C8A72 /* Header */ = {
+		D37097B627510302006C8A72 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				D37097B7275103BA006C8A72 /* UserHeaderView.xib */,
 				D37097B927510403006C8A72 /* UserHeaderView.swift */,
+				D3C6694827508FC900DA7B2A /* CustomButton.swift */,
 			);
-			path = Header;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		D3C669002750402500DA7B2A = {
@@ -133,11 +134,10 @@
 		D3C669202750406400DA7B2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D37097B627510302006C8A72 /* Header */,
+				D37097B627510302006C8A72 /* CustomView */,
 				D3C6693927504EBC00DA7B2A /* Cells */,
 				D3C669282750411F00DA7B2A /* ViewControllers */,
 				D3C669242750408F00DA7B2A /* Storyboard */,
-				D3C6694827508FC900DA7B2A /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

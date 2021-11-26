@@ -1,6 +1,6 @@
 import UIKit
 
-class UserHeaderView: UIView {
+final class UserHeaderView: UIView {
 
     @IBOutlet weak var userImageView: UIImageView!
     

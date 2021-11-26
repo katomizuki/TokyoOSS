@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-class ViewController: UIViewController, UIScrollViewDelegate {
+final class ViewController: UIViewController, UIScrollViewDelegate {
    
     @IBOutlet weak var collectionView: UICollectionView!
     private let disposeBag = DisposeBag()

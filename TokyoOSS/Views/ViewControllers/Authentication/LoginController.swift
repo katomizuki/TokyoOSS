@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
-class LoginController: UIViewController {
+final class LoginController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!

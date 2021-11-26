@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-class UserViewController: UIViewController, UIScrollViewDelegate {
+final class UserViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var userTableView: UITableView!
     private let items = Observable.just(["item 1","item 2","item 3"])
