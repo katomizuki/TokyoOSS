@@ -21,6 +21,7 @@
 		D3C6693C27504F0D00DA7B2A /* TimeLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */; };
 		D3C6693D27504F0D00DA7B2A /* TimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */; };
 		D3C6693F2750544E00DA7B2A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6693E2750544E00DA7B2A /* Post.swift */; };
+		D3C669432750735000DA7B2A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C669422750735000DA7B2A /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		D3C6693A27504F0D00DA7B2A /* TimeLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineCell.swift; sourceTree = "<group>"; };
 		D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeLineCell.xib; sourceTree = "<group>"; };
 		D3C6693E2750544E00DA7B2A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D3C669422750735000DA7B2A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TokyoOSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 		D3C669222750406E00DA7B2A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D3C669422750735000DA7B2A /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -149,11 +152,8 @@
 		D3C669282750411F00DA7B2A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D3C669102750402500DA7B2A /* ViewController.swift */,
-				D3C669292750415400DA7B2A /* RegisterController.swift */,
-				D3C6692B2750419D00DA7B2A /* LoginController.swift */,
-				D3C6692E275044CE00DA7B2A /* PostViewController.swift */,
-				D3C66930275044E700DA7B2A /* UserViewController.swift */,
+				D3C6694127506FEB00DA7B2A /* Authentication */,
+				D3C6694027506FDB00DA7B2A /* Main */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -173,6 +173,25 @@
 				D3C6693B27504F0D00DA7B2A /* TimeLineCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D3C6694027506FDB00DA7B2A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D3C669102750402500DA7B2A /* ViewController.swift */,
+				D3C6692E275044CE00DA7B2A /* PostViewController.swift */,
+				D3C66930275044E700DA7B2A /* UserViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D3C6694127506FEB00DA7B2A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D3C669292750415400DA7B2A /* RegisterController.swift */,
+				D3C6692B2750419D00DA7B2A /* LoginController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		F0E0569685594220DE1A7952 /* Pods */ = {
@@ -313,6 +332,7 @@
 				D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */,
 				D3C6693F2750544E00DA7B2A /* Post.swift in Sources */,
 				D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */,
+				D3C669432750735000DA7B2A /* LoginViewModel.swift in Sources */,
 				D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

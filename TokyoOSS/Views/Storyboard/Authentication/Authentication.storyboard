@@ -15,11 +15,52 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SjF-Lc-aEB">
+                                <rect key="frame" x="50" y="246" width="275" height="175"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4B-zO-Cfz">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="AEo-yz-JPq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGF-26-kHr">
+                                        <rect key="frame" x="0.0" y="65" width="275" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="fsx-EX-Swd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-fL-W1I">
+                                        <rect key="frame" x="0.0" y="130" width="275" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="MYT-Li-Ja5"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="ログイン"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SjF-Lc-aEB" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="3Dw-xZ-Agd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SjF-Lc-aEB" secondAttribute="trailing" constant="50" id="W1D-M3-iKc"/>
+                            <constraint firstItem="SjF-Lc-aEB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="reZ-O4-nja"/>
+                            <constraint firstItem="SjF-Lc-aEB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="yaz-Yv-4M6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8NV-SW-rlH"/>
                     <connections>
+                        <outlet property="emailTextField" destination="e4B-zO-Cfz" id="g22-mL-MZf"/>
+                        <outlet property="passwordTextField" destination="vGF-26-kHr" id="2IK-e0-qHT"/>
                         <segue destination="k4h-Jf-6Xg" kind="show" id="vxm-0g-YIt"/>
                     </connections>
                 </viewController>
@@ -34,8 +75,55 @@
                     <view key="view" contentMode="scaleToFill" id="dHG-ug-L3v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wPN-FP-if3">
+                                <rect key="frame" x="50" y="213.5" width="275" height="240"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAj-iw-67Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="CJ1-LW-qRC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PKt-wl-Sbk">
+                                        <rect key="frame" x="0.0" y="65" width="275" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="s8i-wO-DIw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DGv-QF-rmF">
+                                        <rect key="frame" x="0.0" y="130" width="275" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="0uf-eL-DKs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fI-Ko-IfJ">
+                                        <rect key="frame" x="0.0" y="195" width="275" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="NY8-ZG-gmD"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="新規登録"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2FT-LQ-Cbv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wPN-FP-if3" firstAttribute="centerY" secondItem="dHG-ug-L3v" secondAttribute="centerY" id="KQ3-zQ-GVb"/>
+                            <constraint firstItem="wPN-FP-if3" firstAttribute="leading" secondItem="2FT-LQ-Cbv" secondAttribute="leading" constant="50" id="OhP-Iz-bry"/>
+                            <constraint firstItem="2FT-LQ-Cbv" firstAttribute="trailing" secondItem="wPN-FP-if3" secondAttribute="trailing" constant="50" id="o1l-fo-r3Y"/>
+                            <constraint firstItem="wPN-FP-if3" firstAttribute="centerX" secondItem="dHG-ug-L3v" secondAttribute="centerX" id="wpb-g9-xxR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q7k-bj-lub"/>
                 </viewController>
@@ -65,6 +153,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
