@@ -64,7 +64,7 @@ class LoginController: UIViewController {
         
         // Outputs
         viewModel.outputs.isLogin.drive(onNext: { [weak self] result in
-            self?.loginButton.backgroundColor = result ? .systemTeal : .darkGray
+            self?.loginButton.backgroundColor = result ? .systemTeal : .lightGray
             self?.loginButton.isEnabled = result
         }).disposed(by: disposeBag)
 

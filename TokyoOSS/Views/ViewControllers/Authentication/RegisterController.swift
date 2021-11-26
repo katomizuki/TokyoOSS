@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 class RegisterController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
@@ -47,25 +48,35 @@ class RegisterController: UIViewController {
         emailTextField.layer.borderColor = UIColor.darkGray.cgColor
         nameTextField.layer.borderWidth = 1
         nameTextField.layer.borderColor = UIColor.darkGray.cgColor
+        nameDeleteButton.isHidden = true
+        emailDeleteButton.isHidden = true
+        passwordDeleteButton.isHidden = true
     }
     private func setupBinding() {
         
         // Inputs
         nameTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
             self?.viewModel.inputs.nameTextField.accept(text ?? "")
+            self?.nameDeleteButton.isHidden = text?.count ?? 0 <= 0
+            self?.nameTextField.layer.borderColor = text?.count ?? 0 <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
         }).disposed(by: disposeBag)
         
         emailTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
             self?.viewModel.inputs.emailTextField.accept(text ?? "")
+            self?.emailDeleteButton.isHidden = text?.count ?? 0 <= 0
+            self?.emailTextField.layer.borderColor = text?.count ?? 0 <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
         }).disposed(by: disposeBag)
         
         passwordTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
             self?.viewModel.inputs.passwordTextField.accept(text ?? "")
+            self?.passwordDeleteButton.isHidden = text?.count ?? 0 <= 0
+            self?.passwordTextField.layer.borderColor = text?.count ?? 0 <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
         }).disposed(by: disposeBag)
 
         // Outputs
-        viewModel.outputs.isRegister.drive(onNext: { result in
-            self.registerButton.backgroundColor = result ? .systemTeal : .darkGray
+        viewModel.outputs.isRegister.drive(onNext: { [weak self] result in
+            self?.registerButton.backgroundColor = result ? .systemTeal : .lightGray
+            self?.registerButton.isEnabled = result
         }).disposed(by: disposeBag)
 
         
@@ -79,6 +90,25 @@ class RegisterController: UIViewController {
         toLoginButton.rx.tap.asDriver().drive(onNext:{ [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
+        
+        passwordTextField.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.passwordDeleteButton.isHidden = false
+            }).disposed(by: disposeBag)
+        
+        emailTextField.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.emailDeleteButton.isHidden = false
+            }).disposed(by: disposeBag)
+        
+        nameTextField.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.nameDeleteButton.isHidden = false
+            }).disposed(by: disposeBag)
+
 
     }
   
