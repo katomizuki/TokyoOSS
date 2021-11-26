@@ -12,9 +12,7 @@ protocol PostViewModelType {
     var outputs:PostViewModelOutputs { get }
 }
 final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOutputs {
-    
-    
-    
+
     var inputs: PostViewModelInputs { return self }
     var outputs: PostViewModelOutputs { return self }
     private let disposeBag = DisposeBag()
