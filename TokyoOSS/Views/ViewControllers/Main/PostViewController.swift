@@ -13,7 +13,7 @@ class PostViewController: UIViewController {
             textView.layer.borderWidth = 1
         }
     }
-    
+    private var viewModel:PostViewModel!
     private let disposeBag = DisposeBag()
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -21,7 +21,12 @@ class PostViewController: UIViewController {
         setupBinding()
     }
     private func setupBinding() {
-        dismissButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+        viewModel = PostViewModel(tap: dismissButton.rx.tap.asSignal())
+        
+        
+        
+        
+        viewModel.outputs.doneDismiss.subscribe(onNext: { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
 

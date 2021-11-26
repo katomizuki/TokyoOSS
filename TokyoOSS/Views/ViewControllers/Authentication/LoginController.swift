@@ -8,7 +8,6 @@ class LoginController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var alreadyButton: UIButton!
-    private let viewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
     private let emailDeleteButton = DeleteButton()
     private let passwordDeleteButton = DeleteButton()
@@ -38,29 +37,29 @@ class LoginController: UIViewController {
     }
     private func setupBinding() {
         // Inputs
+        let viewModel = LoginViewModel(doneMainTap: loginButton.rx.tap.asSignal(),doneRegisterTap: alreadyButton.rx.tap.asSignal())
+        
         passwordTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
-            self?.viewModel.inputs.passwordTextField.accept(text ?? "")
-            self?.passwordDeleteButton.isHidden = text?.count ?? 0 <= 0
-            self?.passwordTextField.layer.borderColor = text?.count ?? 0 <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
+            viewModel.inputs.passwordTextField.accept(text ?? "")
+            self?.passwordDeleteButton.isHidden = viewModel.outputs.passwordButtonHidden
+            self?.passwordTextField.layer.borderColor = viewModel.outputs.passwordBorderColor
         }).disposed(by: disposeBag)
         
         emailTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
-            self?.viewModel.inputs.emailTextField.accept(text ?? "")
-            self?.emailDeleteButton.isHidden = text?.count ?? 0 <= 0
-            self?.emailTextField.layer.borderColor = text?.count ?? 0 <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
+            viewModel.inputs.emailTextField.accept(text ?? "")
+            self?.emailDeleteButton.isHidden = viewModel.outputs.emailButtonHidden
+            self?.emailTextField.layer.borderColor = viewModel.outputs.emailBorderColor
         }).disposed(by: disposeBag)
         
         passwordTextField.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
-                self?.passwordDeleteButton.isHidden = false
                 self?.passwordTextField.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
         
         emailTextField.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
-                self?.emailDeleteButton.isHidden = false
                 self?.emailTextField.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
         
@@ -69,20 +68,20 @@ class LoginController: UIViewController {
             self?.loginButton.backgroundColor = result ? .systemTeal : .lightGray
             self?.loginButton.isEnabled = result
         }).disposed(by: disposeBag)
-
-        loginButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+        
+        viewModel.outputs.toMain.subscribe(onNext: { [weak self]_ in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }
             controller.modalPresentationStyle = .fullScreen
             self?.present(controller, animated: true, completion: nil)
         }).disposed(by: disposeBag)
         
-        alreadyButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
+        viewModel.outputs.toRegister.subscribe(onNext: { [weak self] _ in
             let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "RegisterController") as? RegisterController else { return }
             self?.navigationController?.pushViewController(controller, animated: true)
         }).disposed(by: disposeBag)
-        
+
         emailDeleteButton.rx.tap.asDriver().drive(onNext:{ [weak self] _ in
             self?.emailTextField.text = ""
         }).disposed(by: disposeBag)
@@ -90,5 +89,7 @@ class LoginController: UIViewController {
         passwordDeleteButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
             self?.passwordTextField.text = ""
         }).disposed(by: disposeBag)
+        
+        
     }
 }
