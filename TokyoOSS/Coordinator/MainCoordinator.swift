@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 final class MainCoordinator:Coordinator {
     var navigationController: UINavigationController?
-    
+    private let picker = UIImagePickerController()
     func start() {
         
     }
