@@ -2,8 +2,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
-final class LoginController: UIViewController {
-    
+final class LoginController: UIViewController,Coordinating {
+   
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -11,7 +11,7 @@ final class LoginController: UIViewController {
     private let disposeBag = DisposeBag()
     private let emailDeleteButton = DeleteButton()
     private let passwordDeleteButton = DeleteButton()
-    
+    var coordinator: Coordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
@@ -22,6 +22,8 @@ final class LoginController: UIViewController {
         updateAuthencationTextField(tf: passwordTextField, button: passwordDeleteButton)
         passwordTextField.updateAuthTextFieldUI()
         emailTextField.updateAuthTextFieldUI()
+        coordinator = AuthCoordinator()
+        coordinator?.navigationController = self.navigationController
     }
     private func setupBinding() {
         // Inputs
@@ -58,16 +60,11 @@ final class LoginController: UIViewController {
         }).disposed(by: disposeBag)
         
         viewModel.outputs.toMain.subscribe(onNext: { [weak self]_ in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }
-            controller.modalPresentationStyle = .fullScreen
-            self?.present(controller, animated: true, completion: nil)
+            self?.coordinator?.eventOccurred(tap: .perform, vc: self!)
         }).disposed(by: disposeBag)
         
         viewModel.outputs.toRegister.subscribe(onNext: { [weak self] _ in
-            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-            guard let controller = storyboard.instantiateViewController(withIdentifier: "RegisterController") as? RegisterController else { return }
-            self?.navigationController?.pushViewController(controller, animated: true)
+            self?.coordinator?.eventOccurred(tap: .push,vc: self!)
         }).disposed(by: disposeBag)
 
         emailDeleteButton.rx.tap.asDriver().drive(onNext:{ [weak self] _ in
