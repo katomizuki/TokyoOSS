@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
+import PKHUD
 final class PostViewController: UIViewController,Coordinating {
     // MARK: - Properties
     @IBOutlet private weak var pictureButton: UIButton!
@@ -21,7 +22,7 @@ final class PostViewController: UIViewController,Coordinating {
     }()
     private let countLabel:UILabel = {
         let label = UILabel()
-        label.text = "fdfdfdfd"
+        label.text = ""
         label.textColor = .lightGray
         return label
     }()
@@ -75,6 +76,7 @@ final class PostViewController: UIViewController,Coordinating {
         }).disposed(by: disposeBag)
         
         viewModel.outputs.donePost.subscribe(onNext: {[weak self] _ in
+            HUD.show(.success, onView: self?.view)
             self?.coordinator?.eventOccurred(tap: .dismiss, vc: self!)
         }).disposed(by: disposeBag)
         

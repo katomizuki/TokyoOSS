@@ -10,4 +10,10 @@ pod 'RxDataSources', '~> 5.0'
 pod 'RxSwift', '6.2.0'
 pod 'RxCocoa', '6.2.0'
 pod "RxGesture"
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+pod 'IQKeyboardManagerSwift'
+pod 'PKHUD'
 end

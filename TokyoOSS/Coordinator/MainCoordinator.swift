@@ -9,7 +9,9 @@ final class MainCoordinator:Coordinator {
     func eventOccurred(tap: EventTap,vc:UIViewController) {
         switch tap {
         case .dismiss:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
             vc.dismiss(animated: true, completion: nil)
+         })
         case .perform:
             print("perform")
         case .push:
