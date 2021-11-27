@@ -2,8 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
-final class RegisterController: UIViewController {
-
+final class RegisterController: UIViewController,Coordinating {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -13,6 +12,7 @@ final class RegisterController: UIViewController {
     private let emailDeleteButton = DeleteButton()
     private let passwordDeleteButton = DeleteButton()
     private let nameDeleteButton = DeleteButton()
+    var coordinator: Coordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
@@ -32,6 +32,8 @@ final class RegisterController: UIViewController {
         emailDeleteButton.isHidden = true
         passwordDeleteButton.isHidden = true
         nameDeleteButton.isHidden = true
+        coordinator = AuthCoordinator()
+        coordinator?.navigationController = self.navigationController
     }
     private func setupBinding() {
         let viewModel = RegisterViewModel(doneMainTap: registerButton.rx.tap.asSignal(), toLoginTap: toLoginButton.rx.tap.asSignal())
@@ -61,15 +63,12 @@ final class RegisterController: UIViewController {
         }).disposed(by: disposeBag)
         
         viewModel.outputs.toMain.subscribe(onNext:{ [weak self] _ in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }
-            controller.modalPresentationStyle = .fullScreen
-            self?.present(controller, animated: true, completion: nil)
+            self?.coordinator?.eventOccurred(tap: .perform, vc: self!)
         }).disposed(by: disposeBag)
 
         
         viewModel.outputs.toLogin.subscribe(onNext: { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
+            self?.coordinator?.eventOccurred(tap: .pop, vc: self!)
         }).disposed(by: disposeBag)
 
         

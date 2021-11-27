@@ -20,7 +20,7 @@ final class AuthCoordinator:Coordinator {
             guard let controller = storyboard.instantiateViewController(withIdentifier: "RegisterController") as? RegisterController else { return }
             self.navigationController?.pushViewController(controller, animated: true)
         case .pop:
-            print("pop")
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
