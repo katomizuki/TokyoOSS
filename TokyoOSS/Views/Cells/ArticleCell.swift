@@ -1,6 +1,6 @@
 import UIKit
 
-class ArticleCell: UITableViewCell {
+final class ArticleCell: UITableViewCell {
     static let id = "ArticleCell"
     override func awakeFromNib() {
         super.awakeFromNib()

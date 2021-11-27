@@ -2,8 +2,8 @@ import UIKit
 protocol TimeLineCellProtocol {
     func timeLineCell(_ cell:TimeLineCell,didTapLikeButton post:Post)
 }
-class TimeLineCell: UICollectionViewCell {
-
+final class TimeLineCell: UICollectionViewCell {
+    static let id = "TimeLineCell"
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -13,7 +13,10 @@ class TimeLineCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-    }   
+    }
+    static func nib()->UINib {
+        return UINib(nibName: "TimeLineCell", bundle: nil)
+    }
 
     @IBAction func didTapLikeButton(_ sender: Any) {
     }
