@@ -11,6 +11,7 @@
 		D325D4AA275348DC009B6EDE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */; };
 		D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */; };
 		D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AD27534D5F009B6EDE /* PostDetailController.swift */; };
+		D325D4B027535111009B6EDE /* TimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AF27535111009B6EDE /* TimeLineCoordinator.swift */; };
 		D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AA2750BECE006C8A72 /* ArticleCell.swift */; };
 		D37097AD2750BECE006C8A72 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37097AB2750BECE006C8A72 /* ArticleCell.xib */; };
 		D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AE2750BF1A006C8A72 /* UserViewModel.swift */; };
@@ -50,6 +51,7 @@
 		D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		D325D4AD27534D5F009B6EDE /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
+		D325D4AF27535111009B6EDE /* TimeLineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineCoordinator.swift; sourceTree = "<group>"; };
 		D37097AA2750BECE006C8A72 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		D37097AB2750BECE006C8A72 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		D37097AE2750BF1A006C8A72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D37097BC27511051006C8A72 /* Coordinator.swift */,
 				D37097BE27511073006C8A72 /* AuthCoordinator.swift */,
 				D37097C0275110AF006C8A72 /* MainCoordinator.swift */,
+				D325D4AF27535111009B6EDE /* TimeLineCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				D37097B32750F619006C8A72 /* ViewController+Extension.swift in Sources */,
 				D37097B12750D1ED006C8A72 /* PostViewModel.swift in Sources */,
 				D3C6694927508FC900DA7B2A /* CustomButton.swift in Sources */,
+				D325D4B027535111009B6EDE /* TimeLineCoordinator.swift in Sources */,
 				D3C66931275044E700DA7B2A /* UserViewController.swift in Sources */,
 				D37097BF27511073006C8A72 /* AuthCoordinator.swift in Sources */,
 				D37097C32751D1F2006C8A72 /* Validator.swift in Sources */,

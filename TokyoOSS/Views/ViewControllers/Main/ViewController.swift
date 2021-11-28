@@ -2,8 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-final class ViewController: UIViewController, UIScrollViewDelegate {
-   
+final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout! {
         didSet {
             flowLayout.estimatedItemSize = .zero
@@ -11,6 +10,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     }
     @IBOutlet private weak var collectionView: UICollectionView!
     private let disposeBag = DisposeBag()
+    var coordinator: Coordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()
@@ -20,11 +20,13 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         collectionView.dataSource = self
         let nib = TimeLineCell.nib()
         collectionView.register(nib, forCellWithReuseIdentifier: TimeLineCell.id)
+        coordinator = TimeLineCoordinator()
+        coordinator?.navigationController = self.navigationController
     }
 }
 extension ViewController:UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
+        coordinator?.eventOccurred(tap: .push, vc: self)
     }
 }
 extension ViewController:UICollectionViewDataSource {

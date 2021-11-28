@@ -1,6 +1,7 @@
 import UIKit
 
 final class ArticleCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
     static let id = "ArticleCell"
     override func awakeFromNib() {
         super.awakeFromNib()
