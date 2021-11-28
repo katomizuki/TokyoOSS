@@ -11,6 +11,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     @IBOutlet private weak var collectionView: UICollectionView!
     private let disposeBag = DisposeBag()
     var coordinator: Coordinator?
+    private let viewModel = TimeLineViewModel(postAPI: FetchPost())
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()

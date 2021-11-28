@@ -1,11 +1,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 final class UserViewController: UIViewController,Coordinating {
     
     @IBOutlet private weak var userTableView: UITableView!
     private let disposeBag = DisposeBag()
     var coordinator: Coordinator?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -17,6 +19,11 @@ final class UserViewController: UIViewController,Coordinating {
         userTableView.register(nib, forCellReuseIdentifier: ArticleCell.id)
         userTableView.delegate = self
         userTableView.dataSource = self
+    }
+    private func setupBinding() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let viewModel = UserViewModel(userAPI: FetchUser(), userId: userId)
+        
     }
 }
 extension UserViewController:UITableViewDataSource {
