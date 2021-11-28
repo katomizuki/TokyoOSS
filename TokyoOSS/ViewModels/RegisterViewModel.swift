@@ -42,13 +42,13 @@ final class RegisterViewModel:RegisterViewModelType,RegisterViewModelInputs,Regi
         return passwordTextField.value.count <= 0
     }
     var emailTextFieldBorderColor: CGColor {
-        return emailTextField.value.count <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
+        return emailTextField.value.count <= 0 ? UIColor.darkGray.cgColor : appColor.cgColor
     }
     var nameTextFieldBorderColor: CGColor {
-        return nameTextField.value.count <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
+        return nameTextField.value.count <= 0 ? UIColor.darkGray.cgColor : appColor.cgColor
     }
     var passwordTextFieldBorderColor: CGColor {
-        return passwordTextField.value.count <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
+        return passwordTextField.value.count <= 0 ? UIColor.darkGray.cgColor : appColor.cgColor
     }
     init(doneMainTap:Signal<Void>,toLoginTap:Signal<Void>) {
         isRegister = Observable.combineLatest(emailTextField, passwordTextField,nameTextField)
@@ -63,8 +63,6 @@ final class RegisterViewModel:RegisterViewModelType,RegisterViewModelInputs,Regi
         doneMainTap.emit(onNext: { [weak self] _ in
             self?.outputs.toMain.accept(())
         }).disposed(by: disposeBag)
-
-
     }
 }
 

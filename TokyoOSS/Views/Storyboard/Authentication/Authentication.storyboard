@@ -37,7 +37,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-fL-W1I">
                                         <rect key="frame" x="0.0" y="130" width="275" height="45"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.78823529410000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="MYT-Li-Ja5"/>
                                         </constraints>
@@ -52,7 +52,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="HRD-Nd-8pT"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <color key="tintColor" red="0.25490196079999999" green="0.78823529410000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="新規登録はこちらへ"/>
                             </button>
@@ -120,7 +120,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fI-Ko-IfJ">
                                         <rect key="frame" x="0.0" y="195" width="275" height="45"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.78823529410000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="NY8-ZG-gmD"/>
                                         </constraints>
@@ -132,7 +132,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEM-sF-Idd">
                                 <rect key="frame" x="50" y="586" width="275" height="31"/>
-                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <color key="tintColor" red="0.25490196079999999" green="0.78823529410000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="ログインはこちらへ"/>
                             </button>
@@ -185,9 +185,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -33,10 +33,10 @@ final class LoginViewModel:LoginViewModelType,LoginViewModelInputs,LoginViewMode
         return passwordTextField.value.count <= 0
     }
     var emailBorderColor: CGColor {
-        return emailTextField.value.count <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
+        return emailTextField.value.count <= 0 ? UIColor.darkGray.cgColor : appColor.cgColor
     }
     var passwordBorderColor: CGColor {
-        return passwordTextField.value.count <= 0 ? UIColor.darkGray.cgColor : UIColor.systemTeal.cgColor
+        return passwordTextField.value.count <= 0 ? UIColor.darkGray.cgColor : appColor.cgColor
     }
     
     private let disposeBag = DisposeBag()
