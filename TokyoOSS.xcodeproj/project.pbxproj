@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		60611572FF3C3EB7A78D3252 /* Pods_TokyoOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */; };
+		D325D4AA275348DC009B6EDE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */; };
+		D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */; };
+		D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AD27534D5F009B6EDE /* PostDetailController.swift */; };
 		D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AA2750BECE006C8A72 /* ArticleCell.swift */; };
 		D37097AD2750BECE006C8A72 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37097AB2750BECE006C8A72 /* ArticleCell.xib */; };
 		D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AE2750BF1A006C8A72 /* UserViewModel.swift */; };
@@ -44,6 +47,9 @@
 /* Begin PBXFileReference section */
 		1DA6743BD50AB980F522C145 /* Pods-TokyoOSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.debug.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.debug.xcconfig"; sourceTree = "<group>"; };
 		8DC8920F31A2B6DCCA014DE5 /* Pods-TokyoOSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.release.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.release.xcconfig"; sourceTree = "<group>"; };
+		D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
+		D325D4AD27534D5F009B6EDE /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		D37097AA2750BECE006C8A72 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		D37097AB2750BECE006C8A72 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		D37097AE2750BF1A006C8A72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				D3C669442750807500DA7B2A /* RegisterViewModel.swift */,
 				D37097AE2750BF1A006C8A72 /* UserViewModel.swift */,
 				D37097B02750D1ED006C8A72 /* PostViewModel.swift */,
+				D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 				D37097B22750F619006C8A72 /* ViewController+Extension.swift */,
 				D37097B42750F713006C8A72 /* TextField+Extension.swift */,
 				D37097C22751D1F2006C8A72 /* Validator.swift */,
+				D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 				D3C669102750402500DA7B2A /* ViewController.swift */,
 				D3C6692E275044CE00DA7B2A /* PostViewController.swift */,
 				D3C66930275044E700DA7B2A /* UserViewController.swift */,
+				D325D4AD27534D5F009B6EDE /* PostDetailController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -403,6 +412,7 @@
 				D37097C1275110AF006C8A72 /* MainCoordinator.swift in Sources */,
 				D3C6692F275044CE00DA7B2A /* PostViewController.swift in Sources */,
 				D3C6692A2750415400DA7B2A /* RegisterController.swift in Sources */,
+				D325D4AA275348DC009B6EDE /* UIColor+Extension.swift in Sources */,
 				D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */,
 				D3C669112750402500DA7B2A /* ViewController.swift in Sources */,
 				D3C6694727508BA800DA7B2A /* Anchor+Extension.swift in Sources */,
@@ -416,8 +426,10 @@
 				D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */,
 				D3B80E062751EDC20039CA82 /* User.swift in Sources */,
 				D3C669432750735000DA7B2A /* LoginViewModel.swift in Sources */,
+				D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */,
 				D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */,
 				D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */,
+				D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

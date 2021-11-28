@@ -12,7 +12,8 @@ final class TimeLineCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        userImageView.tintColor = appColor
+        timeLineImageView.backgroundColor = appColor
     }
     static func nib()->UINib {
         return UINib(nibName: "TimeLineCell", bundle: nil)
