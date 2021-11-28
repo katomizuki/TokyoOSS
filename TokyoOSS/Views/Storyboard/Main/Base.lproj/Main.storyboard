@@ -142,13 +142,17 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-J0-Sq8">
-                                <rect key="frame" x="300" y="543.5" width="50" height="49"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-J0-Sq8">
+                                <rect key="frame" x="300" y="544.5" width="50" height="47.5"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="fmR-67-Gvh"/>
                                     <constraint firstAttribute="height" constant="50" id="qto-gw-2e4"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="pzU-jB-GIQ" appends="YES" id="NO3-pM-MVx"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1lK-Fd-iRf"/>
@@ -181,8 +185,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vur-LP-22m"/>
+                    <connections>
+                        <outlet property="likeCountLabel" destination="wLs-9X-rzr" id="xc2-0H-Z7I"/>
+                        <outlet property="likeImageView" destination="xLm-J0-Sq8" id="dSv-b1-pen"/>
+                        <outlet property="postContentLabel" destination="SkG-ie-gTu" id="e2I-fv-RcT"/>
+                        <outlet property="postDayLabel" destination="Ca0-e6-nKY" id="yep-4c-7i8"/>
+                        <outlet property="postImageView" destination="c77-Pq-rII" id="zMY-MN-EBb"/>
+                        <outlet property="titleLabel" destination="gcU-dJ-dau" id="gOJ-JY-pIN"/>
+                        <outlet property="userImageView" destination="YOD-39-dS9" id="QXP-k6-RNd"/>
+                        <outlet property="usernameLabel" destination="s2e-sJ-jFL" id="L9V-Ld-XZQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7S-sF-zbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pzU-jB-GIQ">
+                    <connections>
+                        <action selector="didTapLikeImageView:" destination="HHV-Rd-Wmt" id="gvo-XJ-7hJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2143" y="766"/>
         </scene>
@@ -386,7 +405,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.circle" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
