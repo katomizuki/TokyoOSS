@@ -93,6 +93,7 @@
             <size key="customSize" width="332" height="329"/>
             <connections>
                 <outlet property="contentLabel" destination="wzA-xn-cdV" id="buo-jJ-2gz"/>
+                <outlet property="likeButton" destination="RRq-G2-jz0" id="XEA-SX-6au"/>
                 <outlet property="timeLineImageView" destination="u2w-wQ-Zfm" id="m4T-k4-gMA"/>
                 <outlet property="titleLabel" destination="Ltz-cT-DYx" id="2aA-RO-2rS"/>
                 <outlet property="userImageView" destination="ClR-qP-mmX" id="U8V-a1-B4i"/>

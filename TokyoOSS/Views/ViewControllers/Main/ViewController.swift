@@ -36,12 +36,18 @@ extension ViewController:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeLineCell.id, for: indexPath) as? TimeLineCell else { fatalError("can't make TimeLineCell") }
+        cell.delegate = self
         return cell
     }
 }
 extension ViewController:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width - 100, height: 300)
+    }
+}
+extension ViewController:TimeLineCellProtocol {
+    func timeLineCell(_ cell: TimeLineCell, didTapLikeButton post: Post) {
+        print(#function)
     }
 }
 

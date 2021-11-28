@@ -1,14 +1,16 @@
 import UIKit
 import RxSwift
 import RxCocoa
-final class UserViewController: UIViewController, UIScrollViewDelegate {
-
-    @IBOutlet weak var userTableView: UITableView!
-//    let items:Observable<[Post]> = .just([Post(id: "1", title: "sss", content: "アイウエオ")])
+final class UserViewController: UIViewController,Coordinating {
+    
+    @IBOutlet private weak var userTableView: UITableView!
     private let disposeBag = DisposeBag()
+    var coordinator: Coordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        coordinator = UserCoordinator()
+        coordinator?.navigationController = self.navigationController
     }
     private func setupTableView() {
         let nib = ArticleCell.nib()
@@ -32,6 +34,7 @@ extension UserViewController:UITableViewDataSource {
 extension UserViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function)
+        coordinator?.eventOccurred(tap: .push, vc: self)
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UserHeaderView(frame: .zero)
