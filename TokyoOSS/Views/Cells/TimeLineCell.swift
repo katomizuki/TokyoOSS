@@ -1,7 +1,5 @@
 import UIKit
-protocol TimeLineCellProtocol:AnyObject {
-    func timeLineCell(_ cell:TimeLineCell,didTapLikeButton post:Post)
-}
+
 final class TimeLineCell: UICollectionViewCell {
     static let id = "TimeLineCell"
     @IBOutlet private weak var userNameLabel: UILabel!
@@ -12,8 +10,8 @@ final class TimeLineCell: UICollectionViewCell {
     @IBOutlet private weak var likeButton: UIButton!
     private let notLikeImage = UIImage(systemName: "heart")
     private let likeImage = UIImage(systemName: "heart.fill")
-    weak var delegate:TimeLineCellProtocol?
     var isLiked = false
+    private let viewModel = TimeLineViewModel(postAPI: FetchPost())
     override func awakeFromNib() {
         super.awakeFromNib()
         userImageView.tintColor = appColor
@@ -24,7 +22,7 @@ final class TimeLineCell: UICollectionViewCell {
     }
 
     @IBAction func didTapLikeButton(_ sender: Any) {
-//        delegate?.timeLineCell(self, didTapLikeButton: post)
+        viewModel.didTapLikeButton()
         isLiked.toggle()
         
         if isLiked {

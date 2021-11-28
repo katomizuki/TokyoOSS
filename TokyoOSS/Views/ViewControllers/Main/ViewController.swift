@@ -12,43 +12,33 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     private let disposeBag = DisposeBag()
     var coordinator: Coordinator?
     private let viewModel = TimeLineViewModel(postAPI: FetchPost())
+    private let items = Observable.just(["😆","⚡️","✊"])
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()
     }
     private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
         let nib = TimeLineCell.nib()
         collectionView.register(nib, forCellWithReuseIdentifier: TimeLineCell.id)
         coordinator = TimeLineCoordinator()
         coordinator?.navigationController = self.navigationController
+        setupBinding()
+    }
+    private func setupBinding() {
+        print(#function)
+        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        items.bind(to: collectionView.rx.items(cellIdentifier: TimeLineCell.id, cellType: TimeLineCell.self)) { row, element, cell in
+        }.disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected.subscribe(onNext: { indexPath in
+            let index = indexPath.row
+            self.coordinator?.eventOccurred(tap: .push, vc: self)
+        }).disposed(by: disposeBag)
     }
 }
-extension ViewController:UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        coordinator?.eventOccurred(tap: .push, vc: self)
-    }
-}
-extension ViewController:UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeLineCell.id, for: indexPath) as? TimeLineCell else { fatalError("can't make TimeLineCell") }
-        cell.delegate = self
-        return cell
-    }
-}
+
 extension ViewController:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width - 100, height: 300)
     }
 }
-extension ViewController:TimeLineCellProtocol {
-    func timeLineCell(_ cell: TimeLineCell, didTapLikeButton post: Post) {
-        print(#function)
-    }
-}
-
