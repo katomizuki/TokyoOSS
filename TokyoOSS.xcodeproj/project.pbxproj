@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		60611572FF3C3EB7A78D3252 /* Pods_TokyoOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */; };
 		D3074C852753575800A84358 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3074C842753575800A84358 /* UserCoordinator.swift */; };
+		D3074C872753610F00A84358 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3074C862753610F00A84358 /* Ref.swift */; };
 		D325D4AA275348DC009B6EDE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */; };
 		D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */; };
 		D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AD27534D5F009B6EDE /* PostDetailController.swift */; };
@@ -50,6 +51,7 @@
 		1DA6743BD50AB980F522C145 /* Pods-TokyoOSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.debug.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.debug.xcconfig"; sourceTree = "<group>"; };
 		8DC8920F31A2B6DCCA014DE5 /* Pods-TokyoOSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.release.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.release.xcconfig"; sourceTree = "<group>"; };
 		D3074C842753575800A84358 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
+		D3074C862753610F00A84358 /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
 		D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		D325D4AD27534D5F009B6EDE /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				D37097B42750F713006C8A72 /* TextField+Extension.swift */,
 				D37097C22751D1F2006C8A72 /* Validator.swift */,
 				D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */,
+				D3074C862753610F00A84358 /* Ref.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */,
 				D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */,
 				D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */,
+				D3074C872753610F00A84358 /* Ref.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

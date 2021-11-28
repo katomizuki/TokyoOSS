@@ -13,7 +13,6 @@ final class TimeLineCell: UICollectionViewCell {
     private let notLikeImage = UIImage(systemName: "heart")
     private let likeImage = UIImage(systemName: "heart.fill")
     weak var delegate:TimeLineCellProtocol?
-    var post = Post(id: "1", title: "s", content: "ss")
     var isLiked = false
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +24,7 @@ final class TimeLineCell: UICollectionViewCell {
     }
 
     @IBAction func didTapLikeButton(_ sender: Any) {
-        delegate?.timeLineCell(self, didTapLikeButton: post)
+//        delegate?.timeLineCell(self, didTapLikeButton: post)
         isLiked.toggle()
         
         if isLiked {
