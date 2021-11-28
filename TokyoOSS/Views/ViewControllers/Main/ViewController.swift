@@ -4,6 +4,11 @@ import RxCocoa
 import RxDataSources
 final class ViewController: UIViewController, UIScrollViewDelegate {
    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            flowLayout.estimatedItemSize = .zero
+        }
+    }
     @IBOutlet private weak var collectionView: UICollectionView!
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -31,12 +36,10 @@ extension ViewController:UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeLineCell.id, for: indexPath) as? TimeLineCell else { fatalError("can't make TimeLineCell") }
         return cell
     }
-    
-    
 }
 extension ViewController:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 200)
+        return CGSize(width: view.frame.size.width - 100, height: 300)
     }
 }
 

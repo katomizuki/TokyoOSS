@@ -68,6 +68,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="oyr-Ey-muW" id="5DE-o4-WW1"/>
+                        <outlet property="flowLayout" destination="Pe0-RI-jke" id="b7I-Yh-GCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
