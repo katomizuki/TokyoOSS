@@ -1,53 +1,52 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 import FirebaseAuth
-final class UserViewController: UIViewController,Coordinating {
+struct UserSectionModel {
+    var header:String
+    var items:[Post]
+}
+final class UserViewController: UIViewController,Coordinating, UIScrollViewDelegate {
     
     @IBOutlet private weak var userTableView: UITableView!
     private let disposeBag = DisposeBag()
     var coordinator: Coordinator?
-   
+    private let items = Observable.just(["😆","⚡️",""])
+    private let userView = UserHeaderView()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         coordinator = UserCoordinator()
         coordinator?.navigationController = self.navigationController
+        setupUI()
     }
     private func setupTableView() {
         let nib = ArticleCell.nib()
         userTableView.register(nib, forCellReuseIdentifier: ArticleCell.id)
-        userTableView.delegate = self
-        userTableView.dataSource = self
+        userTableView.rowHeight = 60
+        setupBinding()
     }
+    private func setupUI() {
+        view.addSubview(userView)
+        userView.anchor(top:view.safeAreaLayoutGuide.topAnchor,leading:view.leadingAnchor,bottom:userTableView.topAnchor,
+                        trailing: view.trailingAnchor,paddingTop: 5,paddingLeft: 25,paddingRight: 25)
+    }
+    
     private func setupBinding() {
+        
+        userTableView.rx.setDelegate(self).disposed(by: disposeBag)
+        items.bind(to: userTableView.rx.items(cellIdentifier: ArticleCell.id, cellType: ArticleCell.self)) { row,element,cell in
+            
+        }.disposed(by: disposeBag)
+        
+        userTableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                self.coordinator?.eventOccurred(tap: .push, vc: self)
+            }).disposed(by: disposeBag)
+
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let viewModel = UserViewModel(userAPI: FetchUser(), userId: userId)
-        
     }
 }
-extension UserViewController:UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.id, for: indexPath) as? ArticleCell else { fatalError() }
-        return cell
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-}
-extension UserViewController:UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(#function)
-        coordinator?.eventOccurred(tap: .push, vc: self)
-    }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UserHeaderView(frame: .zero)
-        return header
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
-    }
-}
+

@@ -131,7 +131,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SkG-ie-gTu">
                                 <rect key="frame" x="25" y="359" width="325" height="269"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ</mutableString>
+                                <string key="text">楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ楽しいことしたいなぁ</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -214,7 +214,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3yT-6E-MKw">
-                                <rect key="frame" x="40" y="84" width="295" height="534"/>
+                                <rect key="frame" x="40" y="144" width="295" height="474"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -223,7 +223,7 @@
                         <constraints>
                             <constraint firstItem="3yT-6E-MKw" firstAttribute="leading" secondItem="q0f-Du-6xf" secondAttribute="leading" constant="40" id="MSy-cC-opR"/>
                             <constraint firstItem="q0f-Du-6xf" firstAttribute="trailing" secondItem="3yT-6E-MKw" secondAttribute="trailing" constant="40" id="h4Q-jg-Nkd"/>
-                            <constraint firstItem="3yT-6E-MKw" firstAttribute="top" secondItem="q0f-Du-6xf" secondAttribute="top" constant="40" id="pSq-MY-bZJ"/>
+                            <constraint firstItem="3yT-6E-MKw" firstAttribute="top" secondItem="q0f-Du-6xf" secondAttribute="top" constant="100" id="pSq-MY-bZJ"/>
                             <constraint firstItem="q0f-Du-6xf" firstAttribute="bottom" secondItem="3yT-6E-MKw" secondAttribute="bottom" id="wBf-ND-cYl"/>
                         </constraints>
                     </view>
