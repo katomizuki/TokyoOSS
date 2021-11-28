@@ -150,9 +150,6 @@
                                     <constraint firstAttribute="width" constant="50" id="fmR-67-Gvh"/>
                                     <constraint firstAttribute="height" constant="50" id="qto-gw-2e4"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="pzU-jB-GIQ" appends="YES" id="NO3-pM-MVx"/>
-                                </connections>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1lK-Fd-iRf"/>
@@ -197,11 +194,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7S-sF-zbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pzU-jB-GIQ">
-                    <connections>
-                        <action selector="didTapLikeImageView:" destination="HHV-Rd-Wmt" id="gvo-XJ-7hJ"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2143" y="766"/>
         </scene>

@@ -23,12 +23,6 @@ final class TimeLineCell: UICollectionViewCell {
 
     @IBAction func didTapLikeButton(_ sender: Any) {
         viewModel.didTapLikeButton()
-        isLiked.toggle()
-        
-        if isLiked {
-            likeButton.setImage(likeImage, for: .normal)
-        } else {
-            likeButton.setImage(notLikeImage, for: .normal)
-        }
+        likeButton.setImage(viewModel.currentImage, for: .normal)
     }
 }

@@ -10,13 +10,15 @@ protocol TimeLineViewModelOutputs {
     var isError:BehaviorRelay<Bool> { get }
     var timeLineList:BehaviorRelay<[Post]> { get }
     var likeButtonTap:PublishRelay<Void> { get }
+    var isLike:Bool { get }
+    var currentImage:UIImage { get }
 }
 protocol TimeLineViewModelType {
     var inputs:TimeLineViewModelInputs { get }
     var outputs:TimeLineViewModelOutputs { get }
 }
 final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,TimeLineViewModelOutputs {
-    
+    var currentImage: UIImage = UIImage(systemName: "heart")!
     var cellTap = PublishRelay<Void>()
     var inputs: TimeLineViewModelInputs { return self }
     var outputs: TimeLineViewModelOutputs { return self }
@@ -25,6 +27,7 @@ final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,Time
     private let disposeBag = DisposeBag()
     var timeLineList = BehaviorRelay<[Post]>(value: [])
     var likeButtonTap = PublishRelay<Void>()
+    var isLike = false
     init(postAPI:FetchPostProtocol) {
         self.postAPI = postAPI
     }
@@ -41,5 +44,13 @@ final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,Time
     }
     func didTapLikeButton() {
         print(#function)
+        outputs.likeButtonTap.accept(())
+        isLike.toggle()
+        print(isLike)
+        if isLike {
+            currentImage = UIImage(systemName: "heart.fill")!
+        } else {
+            currentImage = UIImage(systemName: "heart")!
+        }
     }
 }

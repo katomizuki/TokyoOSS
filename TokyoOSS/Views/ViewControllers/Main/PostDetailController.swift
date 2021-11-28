@@ -1,5 +1,7 @@
 import UIKit
-
+import RxSwift
+import RxCocoa
+import RxGesture
 class PostDetailController: UIViewController {
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
@@ -9,19 +11,19 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var postContentLabel: UITextView!
     @IBOutlet weak var likeCountLabel: UILabel!
+    private let disposeBag = DisposeBag()
     private var isLiked = false
+    private let viewModel = PostDetailViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupBinding()
     }
-    @IBAction func didTapLikeImageView(_ sender: Any) {
-        print(#function)
-        isLiked.toggle()
-        if isLiked {
-            likeImageView.image = UIImage(systemName: "heart.fill")
-        } else {
-            likeImageView.image = UIImage(systemName: "heart")
-        }
+    private func setupBinding() {
+        likeImageView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.didTapLike()
+                self?.likeImageView.image = self?.viewModel.currentImage
+            }).disposed(by: disposeBag)
     }
-    
 }

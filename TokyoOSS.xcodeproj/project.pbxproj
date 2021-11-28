@@ -10,6 +10,7 @@
 		60611572FF3C3EB7A78D3252 /* Pods_TokyoOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC223975C2217F043C08E4AD /* Pods_TokyoOSS.framework */; };
 		D3074C852753575800A84358 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3074C842753575800A84358 /* UserCoordinator.swift */; };
 		D3074C872753610F00A84358 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3074C862753610F00A84358 /* Ref.swift */; };
+		D3074C89275396AF00A84358 /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3074C88275396AF00A84358 /* PostDetailViewModel.swift */; };
 		D325D4AA275348DC009B6EDE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */; };
 		D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */; };
 		D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AD27534D5F009B6EDE /* PostDetailController.swift */; };
@@ -52,6 +53,7 @@
 		8DC8920F31A2B6DCCA014DE5 /* Pods-TokyoOSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokyoOSS.release.xcconfig"; path = "Target Support Files/Pods-TokyoOSS/Pods-TokyoOSS.release.xcconfig"; sourceTree = "<group>"; };
 		D3074C842753575800A84358 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 		D3074C862753610F00A84358 /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
+		D3074C88275396AF00A84358 /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		D325D4A9275348DC009B6EDE /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		D325D4AD27534D5F009B6EDE /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				D37097AE2750BF1A006C8A72 /* UserViewModel.swift */,
 				D37097B02750D1ED006C8A72 /* PostViewModel.swift */,
 				D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */,
+				D3074C88275396AF00A84358 /* PostDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */,
 				D3C6693F2750544E00DA7B2A /* Post.swift in Sources */,
 				D3C6690F2750402500DA7B2A /* SceneDelegate.swift in Sources */,
+				D3074C89275396AF00A84358 /* PostDetailViewModel.swift in Sources */,
 				D3B80E062751EDC20039CA82 /* User.swift in Sources */,
 				D3C669432750735000DA7B2A /* LoginViewModel.swift in Sources */,
 				D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */,
