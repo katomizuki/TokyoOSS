@@ -46,7 +46,6 @@ final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,Time
         print(#function)
         outputs.likeButtonTap.accept(())
         isLike.toggle()
-        print(isLike)
         if isLike {
             currentImage = UIImage(systemName: "heart.fill")!
         } else {

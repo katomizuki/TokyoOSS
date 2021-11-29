@@ -15,6 +15,8 @@
 		D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */; };
 		D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AD27534D5F009B6EDE /* PostDetailController.swift */; };
 		D325D4B027535111009B6EDE /* TimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AF27535111009B6EDE /* TimeLineCoordinator.swift */; };
+		D32B8C542754E6AF0036FA98 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32B8C532754E6AF0036FA98 /* TestViewController.swift */; };
+		D32B8C552754EAAE0036FA98 /* EditorJSMock.json in Resources */ = {isa = PBXBuildFile; fileRef = D37DF6982754619100CABE2F /* EditorJSMock.json */; };
 		D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AA2750BECE006C8A72 /* ArticleCell.swift */; };
 		D37097AD2750BECE006C8A72 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37097AB2750BECE006C8A72 /* ArticleCell.xib */; };
 		D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AE2750BF1A006C8A72 /* UserViewModel.swift */; };
@@ -27,6 +29,7 @@
 		D37097BF27511073006C8A72 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097BE27511073006C8A72 /* AuthCoordinator.swift */; };
 		D37097C1275110AF006C8A72 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097C0275110AF006C8A72 /* MainCoordinator.swift */; };
 		D37097C32751D1F2006C8A72 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097C22751D1F2006C8A72 /* Validator.swift */; };
+		D37DF69727545EBA00CABE2F /* HeaderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37DF69627545EBA00CABE2F /* HeaderStyle.swift */; };
 		D3B80E042751E6920039CA82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B80E032751E6920039CA82 /* GoogleService-Info.plist */; };
 		D3B80E062751EDC20039CA82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B80E052751EDC20039CA82 /* User.swift */; };
 		D3C6690D2750402500DA7B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6690C2750402500DA7B2A /* AppDelegate.swift */; };
@@ -58,6 +61,7 @@
 		D325D4AB27534B9A009B6EDE /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		D325D4AD27534D5F009B6EDE /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		D325D4AF27535111009B6EDE /* TimeLineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineCoordinator.swift; sourceTree = "<group>"; };
+		D32B8C532754E6AF0036FA98 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D37097AA2750BECE006C8A72 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		D37097AB2750BECE006C8A72 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		D37097AE2750BF1A006C8A72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		D37097BE27511073006C8A72 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		D37097C0275110AF006C8A72 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		D37097C22751D1F2006C8A72 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		D37DF69627545EBA00CABE2F /* HeaderStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderStyle.swift; sourceTree = "<group>"; };
+		D37DF6982754619100CABE2F /* EditorJSMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EditorJSMock.json; sourceTree = "<group>"; };
 		D3B80E032751E6920039CA82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3B80E052751EDC20039CA82 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D3C669092750402500DA7B2A /* TokyoOSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokyoOSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +193,7 @@
 			children = (
 				D3C6693E2750544E00DA7B2A /* Post.swift */,
 				D3B80E052751EDC20039CA82 /* User.swift */,
+				D37DF69627545EBA00CABE2F /* HeaderStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,10 +272,12 @@
 		D3C6694027506FDB00DA7B2A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D37DF6982754619100CABE2F /* EditorJSMock.json */,
 				D3C669102750402500DA7B2A /* ViewController.swift */,
 				D3C6692E275044CE00DA7B2A /* PostViewController.swift */,
 				D3C66930275044E700DA7B2A /* UserViewController.swift */,
 				D325D4AD27534D5F009B6EDE /* PostDetailController.swift */,
+				D32B8C532754E6AF0036FA98 /* TestViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -356,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32B8C552754EAAE0036FA98 /* EditorJSMock.json in Resources */,
 				D37097B8275103BA006C8A72 /* UserHeaderView.xib in Resources */,
 				D3C6693D27504F0D00DA7B2A /* TimeLineCell.xib in Resources */,
 				D3C669162750402600DA7B2A /* Assets.xcassets in Resources */,
@@ -421,12 +431,14 @@
 				D325D4B027535111009B6EDE /* TimeLineCoordinator.swift in Sources */,
 				D3C66931275044E700DA7B2A /* UserViewController.swift in Sources */,
 				D37097BF27511073006C8A72 /* AuthCoordinator.swift in Sources */,
+				D37DF69727545EBA00CABE2F /* HeaderStyle.swift in Sources */,
 				D37097C32751D1F2006C8A72 /* Validator.swift in Sources */,
 				D37097C1275110AF006C8A72 /* MainCoordinator.swift in Sources */,
 				D3C6692F275044CE00DA7B2A /* PostViewController.swift in Sources */,
 				D3C6692A2750415400DA7B2A /* RegisterController.swift in Sources */,
 				D325D4AA275348DC009B6EDE /* UIColor+Extension.swift in Sources */,
 				D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */,
+				D32B8C542754E6AF0036FA98 /* TestViewController.swift in Sources */,
 				D3C669112750402500DA7B2A /* ViewController.swift in Sources */,
 				D3C6694727508BA800DA7B2A /* Anchor+Extension.swift in Sources */,
 				D37097B52750F713006C8A72 /* TextField+Extension.swift in Sources */,

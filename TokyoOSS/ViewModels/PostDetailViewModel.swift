@@ -26,5 +26,4 @@ final class PostDetailViewModel:PostDetailViewModelInputs,PostDetailViewModelOut
         isLiked.accept(value)
         currentImage = value ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
     }
-    
 }

@@ -2,16 +2,27 @@ import Foundation
 import RxSwift
 import Firebase
 import RxCocoa
-struct Post {
+
+struct Blogs:Codable {
+    let blocks:[Post]
+//    init(dic:[String:Any]) {
+//        if let data = dic["blocks"] as? [Any] {
+//            data.forEach {
+//
+//            }
+//        }
+//    }
+}
+
+struct Post:Codable {
     let id:String
-    let title:String
-    let content:String
-    var likeCount = 0
-    init(dic:[String:Any]) {
-        self.id = dic["id"] as? String ?? ""
-        self.title = dic["title"] as? String ?? ""
-        self.content = dic["content"] as? String ?? ""
-    }
+    let type:String
+    let text:String
+//    let data:[Content]
+}
+struct Content:Codable {
+    let level:Int
+    let text:String
 }
 protocol FetchPostProtocol {
     func getFsData() -> Single<[Post]>
@@ -25,8 +36,9 @@ struct FetchPost:FetchPostProtocol {
                         return
                     }
                     if let snapShot = querySnapshot {
-                        let documents = snapShot.documents.map { Post(dic: $0.data()) }
-                        observer(.success(documents))
+                        snapShot.documents.forEach { doc in
+                            let data = doc.data()
+                        }
                         return
                     }
                 }

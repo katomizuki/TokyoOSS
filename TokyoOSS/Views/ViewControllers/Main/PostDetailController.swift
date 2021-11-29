@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
+import EditorJSKit
 class PostDetailController: UIViewController {
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
@@ -27,3 +28,5 @@ class PostDetailController: UIViewController {
             }).disposed(by: disposeBag)
     }
 }
+
+

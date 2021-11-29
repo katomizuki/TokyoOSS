@@ -3,6 +3,7 @@ import RxSwift
 import RxCocoa
 import RxGesture
 import PKHUD
+import EditorJSKit
 final class PostViewController: UIViewController,Coordinating {
     // MARK: - Properties
     @IBOutlet private weak var pictureButton: UIButton!
@@ -37,6 +38,7 @@ final class PostViewController: UIViewController,Coordinating {
     private let disposeBag = DisposeBag()
     private let picker = UIImagePickerController()
     var coordinator: Coordinator?
+  
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,7 @@ final class PostViewController: UIViewController,Coordinating {
         setupUI()
         coordinator = MainCoordinator()
         picker.delegate = self
+        
     }
     private func setupUI() {
         textView.addSubview(placeholderLabel)
@@ -69,8 +72,8 @@ final class PostViewController: UIViewController,Coordinating {
             self?.textView.layer.borderColor = self?.viewModel.outputs.textViewBorderColor
             self?.countLabel.text = self?.viewModel.outputs.textViewCount
         }).disposed(by: disposeBag)
-
-
+        
+        
         viewModel.outputs.doneDismiss.subscribe(onNext: { [weak self] _ in
             self?.coordinator?.eventOccurred(tap: .dismiss, vc: self!)
         }).disposed(by: disposeBag)
@@ -96,6 +99,7 @@ final class PostViewController: UIViewController,Coordinating {
                 self?.textView.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
     }
+    
 }
 extension PostViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -106,3 +110,4 @@ extension PostViewController:UIImagePickerControllerDelegate,UINavigationControl
         dismiss(animated: true, completion: nil)
     }
 }
+
