@@ -67,6 +67,7 @@ final class PostViewController: UIViewController,Coordinating {
         
         textView.rx.text.asDriver().drive(onNext: { [weak self] text in
             self?.viewModel.inputs.contentTextView.accept(text ?? "")
+            print(text)
             guard let bool = self?.viewModel.isPlaceHolderLabelHidden else { return }
             self?.placeholderLabel.isHidden = bool
             self?.textView.layer.borderColor = self?.viewModel.outputs.textViewBorderColor
@@ -98,6 +99,15 @@ final class PostViewController: UIViewController,Coordinating {
             .subscribe(onNext: { [weak self] _ in
                 self?.textView.layer.borderColor = UIColor.systemTeal.cgColor
             }).disposed(by: disposeBag)
+        
+        postButton.rx.tap.asDriver().drive(onNext: { _ in
+            guard let title = self.titleTextField.text else { return }
+            guard let text = self.textView.text else { return }
+            FetchPost().sendFsData(title: title, content: text) { result in
+                print(result)
+            }
+        }).disposed(by: disposeBag)
+
     }
     
 }

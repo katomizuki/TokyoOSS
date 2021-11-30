@@ -1,9 +1,4 @@
-//
-//  TestViewController.swift
-//  TokyoOSS
-//
-//  Created by ミズキ on 2021/11/29.
-//
+
 
 import UIKit
 import EditorJSKit
@@ -40,7 +35,6 @@ class TestViewController: UIViewController {
     }
 
 }
-///
 extension TestViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         do {

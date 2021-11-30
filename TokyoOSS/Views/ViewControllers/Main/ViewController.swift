@@ -16,12 +16,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()
-        FetchPost().getFsData().subscribe(onSuccess: { posts in
-            print(posts,"🌂")
-        },onFailure:{ error in
-            print(error)
-        }).disposed(by: disposeBag)
-
+       
     }
     private func setupCollectionView() {
         let nib = TimeLineCell.nib()
