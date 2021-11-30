@@ -1,10 +1,13 @@
 import RxCocoa
 import RxSwift
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
 protocol RegisterViewModelInputs {
     var emailTextField:BehaviorRelay<String> { get }
     var passwordTextField:BehaviorRelay<String> { get }
     var nameTextField:BehaviorRelay<String> { get }
+    func register(completion:@escaping(Result<String,Error>)->Void)
 }
 protocol RegisterViewModelOutputs {
     var isRegister:Driver<Bool> { get }
@@ -63,6 +66,20 @@ final class RegisterViewModel:RegisterViewModelType,RegisterViewModelInputs,Regi
         doneMainTap.emit(onNext: { [weak self] _ in
             self?.outputs.toMain.accept(())
         }).disposed(by: disposeBag)
+    }
+    
+    func register(completion:@escaping(Result<String,Error>)->Void) {
+        let email = emailTextField.value
+        let name = nameTextField.value
+        let password = passwordTextField.value
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            completion(.success("success!"))
+//            let uid = result?.user.uid
+        }
     }
 }
 

@@ -9,6 +9,7 @@ struct Blogs:Codable {
     var title:String
     var version:String
     var time:Int
+    var isPublic:Bool?
 }
 //[["data":["text":"アイウエオ","level":1],"id":"mizuki","type":"paragraph"],["data":["text":"アイウエオ","level":1],"id":"mizuki","type":"paragraph"]]
 struct Post:Codable {

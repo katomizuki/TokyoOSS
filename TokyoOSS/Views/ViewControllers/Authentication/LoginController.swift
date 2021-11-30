@@ -60,7 +60,14 @@ final class LoginController: UIViewController,Coordinating {
         }).disposed(by: disposeBag)
         
         viewModel.outputs.toMain.subscribe(onNext: { [weak self]_ in
-            self?.coordinator?.eventOccurred(tap: .perform, vc: self!)
+            viewModel.inputs.login { result in
+                switch result {
+                case .success:
+                    self?.coordinator?.eventOccurred(tap: .perform, vc: self!)
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }).disposed(by: disposeBag)
         
         viewModel.outputs.toRegister.subscribe(onNext: { [weak self] _ in
@@ -74,7 +81,6 @@ final class LoginController: UIViewController,Coordinating {
         passwordDeleteButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
             self?.passwordTextField.text = ""
         }).disposed(by: disposeBag)
-        
-        
+
     }
 }

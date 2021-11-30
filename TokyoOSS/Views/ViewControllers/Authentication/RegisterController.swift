@@ -63,7 +63,14 @@ final class RegisterController: UIViewController,Coordinating {
         }).disposed(by: disposeBag)
         
         viewModel.outputs.toMain.subscribe(onNext:{ [weak self] _ in
-            self?.coordinator?.eventOccurred(tap: .perform, vc: self!)
+            viewModel.inputs.register { result in
+                switch result {
+                case .success:
+                    self?.coordinator?.eventOccurred(tap: .perform, vc: self!)
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }).disposed(by: disposeBag)
 
         

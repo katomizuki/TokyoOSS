@@ -1,9 +1,11 @@
 import RxCocoa
 import RxSwift
 import Foundation
+import FirebaseAuth
 protocol LoginViewModelInputs {
     var emailTextField:BehaviorRelay<String> { get }
     var passwordTextField:BehaviorRelay<String> { get }
+    func login(completion:@escaping (Result<String,Error>)->Void)
 }
 protocol LoginViewModelOutputs {
     var isLogin:Driver<Bool> { get }
@@ -52,6 +54,17 @@ final class LoginViewModel:LoginViewModelType,LoginViewModelInputs,LoginViewMode
         doneRegisterTap.emit(onNext: { [weak self] _ in
             self?.outputs.toRegister.accept(())
         }).disposed(by: disposeBag)
+    }
+    func login(completion:@escaping (Result<String,Error>)->Void) {
+        let email = emailTextField.value
+        let password = passwordTextField.value
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            completion(.success("success"))
+        }
     }
 }
 
