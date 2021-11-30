@@ -5,6 +5,10 @@ import RxCocoa
 import FirebaseFirestoreSwift
 struct Blogs:Codable {
     let blocks:[Post]
+    var mainImage:String?
+    var title:String
+    var version:String
+    var time:Int
 }
 //[["data":["text":"アイウエオ","level":1],"id":"mizuki","type":"paragraph"],["data":["text":"アイウエオ","level":1],"id":"mizuki","type":"paragraph"]]
 struct Post:Codable {
@@ -13,12 +17,21 @@ struct Post:Codable {
     let data:Content
 }
 struct Content:Codable {
-    let text:String
+    let text:String?
     let level:Int?
+    var caption:String?
+    var file:File?
+}
+struct File:Codable {
+    var url:String?
+    var stretched:Bool?
+    var withBackground:Bool?
+    var withBorder:Bool?
 }
 protocol FetchPostProtocol {
     func getFsData() -> Single<[Data]>
     func sendFsData(title:String,content:String,completion:@escaping (Result<String,Error>)->Void)
+    func getBlogsData() -> Single<[Blogs]>
 }
 struct FetchPost:FetchPostProtocol {
     func sendFsData(title:String,content:String,completion: @escaping (Result<String, Error>) -> Void) {
@@ -48,7 +61,6 @@ struct FetchPost:FetchPostProtocol {
                                 datas.append(encoder)
                             }
                         }
-                        print(blogs,"🌀")
                         observer(.success(datas))
                         return
                     }
@@ -83,6 +95,31 @@ struct FetchPost:FetchPostProtocol {
         })
         return answer
     }
+    func getBlogsData() -> Single<[Blogs]> {
+            return Single<[Blogs]>.create { (observer) -> Disposable in
+                ref_post.getDocuments(){ (querySnapshot, err) in
+                    if let error = err {
+                        observer(.failure(error))
+                        return
+                    }
+                    if let snapShot = querySnapshot {
+                        var blogs = [Blogs]()
+                        snapShot.documents.forEach { doc in
+                            let data = doc.data()
+                            if let blog = try? Firestore.Decoder().decode(Blogs.self, from: data) {
+                                print(blog,"✊")
+                                blogs.append(blog)
+                            } else {
+                                print("⚡️")
+                            }
+                        }
+                        observer(.success(blogs))
+                        return
+                    }
+                }
+                return Disposables.create()
+            }
+        }
 }
 
 

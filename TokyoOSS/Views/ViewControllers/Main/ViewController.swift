@@ -16,11 +16,12 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()
-        FetchPost().getFsData().subscribe(onSuccess: { datas in
-            print(datas,"⚡️")
+        FetchPost().getBlogsData().subscribe(onSuccess: { blogs in
+            print(blogs)
         }, onFailure: { error in
             print(error)
         }).disposed(by: disposeBag)
+
 
     }
     private func setupCollectionView() {
