@@ -31,15 +31,16 @@ struct File:Codable {
 }
 protocol FetchPostProtocol {
     func getFsData() -> Single<[Data]>
-    func sendFsData(title:String,content:String,completion:@escaping (Result<String,Error>)->Void)
+    func sendFsData(title:String,content:String,urlString:String,completion:@escaping (Result<String,Error>)->Void)
     func getBlogsData() -> Single<[Blogs]>
 }
 struct FetchPost:FetchPostProtocol {
-    func sendFsData(title:String,content:String,completion: @escaping (Result<String, Error>) -> Void) {
+    func sendFsData(title:String,content:String,urlString:String,completion: @escaping (Result<String, Error>) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         let id = ref_ios.document().documentID
         let messages = self.changeContent(content: content)
         let anyies = self.changeDic(arr: messages)
-        let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":"mainImageURL","version":"2.22.2","time":"時間だよ","public":true,"uid":"uidだよ"]
+        let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":urlString,"version":"2.22.2","time":"時間だよ","isPublic":true,"uid":uid]
         ref_post.document(id).setData(dic)
     }
     

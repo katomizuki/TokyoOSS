@@ -58,7 +58,7 @@ final class PostViewController: UIViewController,Coordinating {
     }
     private func setupBinding() {
         viewModel = PostViewModel(tap: dismissButton.rx.tap.asSignal(),
-                                  openTap: postButton.rx.tap.asSignal(),pictureTap:pictureButton.rx.tap.asSignal())
+                                  openTap: postButton.rx.tap.asSignal(),pictureTap:pictureButton.rx.tap.asSignal(),api: FetchPost())
         
         titleTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
             self?.viewModel.inputs.titleTextField.accept(text ?? "")
@@ -67,7 +67,6 @@ final class PostViewController: UIViewController,Coordinating {
         
         textView.rx.text.asDriver().drive(onNext: { [weak self] text in
             self?.viewModel.inputs.contentTextView.accept(text ?? "")
-            print(text)
             guard let bool = self?.viewModel.isPlaceHolderLabelHidden else { return }
             self?.placeholderLabel.isHidden = bool
             self?.textView.layer.borderColor = self?.viewModel.outputs.textViewBorderColor
@@ -101,10 +100,14 @@ final class PostViewController: UIViewController,Coordinating {
             }).disposed(by: disposeBag)
         
         postButton.rx.tap.asDriver().drive(onNext: { _ in
-            guard let title = self.titleTextField.text else { return }
-            guard let text = self.textView.text else { return }
-            FetchPost().sendFsData(title: title, content: text) { result in
-                print(result)
+            self.viewModel.inputs.post(image: self.postImageView.image!) { result in
+                switch result {
+                case .success:
+                    print("⚡️")
+                    self.coordinator?.eventOccurred(tap: .dismiss, vc: self)
+                case .failure(let error):
+                    print(error)
+                }
             }
         }).disposed(by: disposeBag)
 

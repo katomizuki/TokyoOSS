@@ -17,6 +17,7 @@
 		D325D4B027535111009B6EDE /* TimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D4AF27535111009B6EDE /* TimeLineCoordinator.swift */; };
 		D32B8C542754E6AF0036FA98 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32B8C532754E6AF0036FA98 /* TestViewController.swift */; };
 		D32B8C552754EAAE0036FA98 /* EditorJSMock.json in Resources */ = {isa = PBXBuildFile; fileRef = D37DF6982754619100CABE2F /* EditorJSMock.json */; };
+		D32B8C972756192F0036FA98 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32B8C962756192F0036FA98 /* StorageService.swift */; };
 		D37097AC2750BECE006C8A72 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AA2750BECE006C8A72 /* ArticleCell.swift */; };
 		D37097AD2750BECE006C8A72 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37097AB2750BECE006C8A72 /* ArticleCell.xib */; };
 		D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37097AE2750BF1A006C8A72 /* UserViewModel.swift */; };
@@ -62,6 +63,7 @@
 		D325D4AD27534D5F009B6EDE /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		D325D4AF27535111009B6EDE /* TimeLineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineCoordinator.swift; sourceTree = "<group>"; };
 		D32B8C532754E6AF0036FA98 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D32B8C962756192F0036FA98 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		D37097AA2750BECE006C8A72 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		D37097AB2750BECE006C8A72 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		D37097AE2750BF1A006C8A72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				D3C6693E2750544E00DA7B2A /* Post.swift */,
 				D3B80E052751EDC20039CA82 /* User.swift */,
 				D37DF69627545EBA00CABE2F /* HeaderStyle.swift */,
+				D32B8C962756192F0036FA98 /* StorageService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				D3B80E062751EDC20039CA82 /* User.swift in Sources */,
 				D3C669432750735000DA7B2A /* LoginViewModel.swift in Sources */,
 				D325D4AE27534D5F009B6EDE /* PostDetailController.swift in Sources */,
+				D32B8C972756192F0036FA98 /* StorageService.swift in Sources */,
 				D37097AF2750BF1A006C8A72 /* UserViewModel.swift in Sources */,
 				D3C6692C2750419D00DA7B2A /* LoginController.swift in Sources */,
 				D325D4AC27534B9A009B6EDE /* TimeLineViewModel.swift in Sources */,

@@ -1,9 +1,11 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 protocol PostViewModelInputs {
     var titleTextField:BehaviorRelay<String> { get }
     var contentTextView:BehaviorRelay<String> { get }
+    func post(image:UIImage,completion:@escaping(Result<String,Error>)->Void) 
 }
 protocol PostViewModelOutputs {
     var doneDismiss:PublishRelay<Void> { get }
@@ -40,7 +42,9 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
     var textViewCount: String {
         return "\(contentTextView.value.count) 文字"
     }
-    init(tap:Signal<Void>,openTap:Signal<Void>,pictureTap:Signal<Void>) {
+    var api:FetchPostProtocol!
+    init(tap:Signal<Void>,openTap:Signal<Void>,pictureTap:Signal<Void>,api:FetchPostProtocol) {
+        self.api = api
         tap.emit(onNext: { _ in
             self.didTapDismissButton()
         }).disposed(by: disposeBag)
@@ -65,5 +69,24 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
     private func didTapPictureButton() {
         print(#function)
         outputs.toPhotoLibrary.accept(())
+    }
+    func post(image:UIImage,completion:@escaping(Result<String,Error>)->Void) {
+       let title = titleTextField.value
+       let content = contentTextView.value
+        StorageService.upload(image: image) { result in
+            switch result {
+            case .success(let urlstring):
+                self.api.sendFsData(title: title, content: content, urlString: urlstring) { result in
+                    switch result {
+                    case .success:
+                        completion(.success("success"))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
