@@ -20,6 +20,10 @@ final class PostDetailViewModel:PostDetailViewModelInputs,PostDetailViewModelOut
     var inputs: PostDetailViewModelInputs { return self }
     
     var outputs: PostDetailViewModelOutputs { return self }
+    var api:FetchPostProtocol!
+    init(api:FetchPostProtocol) {
+        self.api = api
+    }
     func didTapLike() {
         var value = isLiked.value
         value = !value

@@ -17,7 +17,7 @@ struct Content:Codable {
     let level:Int?
 }
 protocol FetchPostProtocol {
-    func getFsData() -> Single<[Post]>
+    func getFsData() -> Single<[Data]>
     func sendFsData(title:String,content:String,completion:@escaping (Result<String,Error>)->Void)
 }
 struct FetchPost:FetchPostProtocol {
@@ -25,25 +25,31 @@ struct FetchPost:FetchPostProtocol {
         let id = ref_ios.document().documentID
         let messages = self.changeContent(content: content)
         let anyies = self.changeDic(arr: messages)
-        print(anyies,"⚡️")
         let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":"mainImageURL","version":"2.22.2","time":"時間だよ","public":true,"uid":"uidだよ"]
         ref_post.document(id).setData(dic)
     }
     
-    func getFsData() -> Single<[Post]> {
-            return Single<[Post]>.create { (observer) -> Disposable in
+    func getFsData() -> Single<[Data]> {
+            return Single<[Data]>.create { (observer) -> Disposable in
                 ref_post.getDocuments(){ (querySnapshot, err) in
                     if let error = err {
                         observer(.failure(error))
                         return
                     }
                     if let snapShot = querySnapshot {
+                        var datas = [Data]()
+                        var blogs = [Blogs]()
                         snapShot.documents.forEach { doc in
                             let data = doc.data()
-                            let blogs = try? Firestore.Decoder().decode(Blogs.self, from: data)
-                            guard let encoder = try? JSONEncoder().encode(blogs) else { return }
-                            print(String(bytes: encoder, encoding: .utf8)!)
+                            if let blog = try? Firestore.Decoder().decode(Blogs.self, from: data) {
+                                blogs.append(blog)
+                            }
+                            if let encoder = try? JSONEncoder().encode(blogs) {
+                                datas.append(encoder)
+                            }
                         }
+                        print(blogs,"🌀")
+                        observer(.success(datas))
                         return
                     }
                 }
@@ -51,7 +57,6 @@ struct FetchPost:FetchPostProtocol {
             }
         }
     func changeContent(content:String)->[String] {
-
         let chars = Array(content)
         var message = [String]()
         var startIndex = 0
@@ -69,6 +74,7 @@ struct FetchPost:FetchPostProtocol {
         }
         return message
     }
+    
     func changeDic(arr:[String])->[Any]{
         var answer = [Any]()
         arr.forEach({

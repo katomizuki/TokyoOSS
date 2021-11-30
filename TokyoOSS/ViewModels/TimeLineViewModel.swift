@@ -36,11 +36,11 @@ final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,Time
     }
     func showTimeLine() {
         print(#function)
-        postAPI.getFsData().subscribe(onSuccess: { [weak self] posts in
-            self?.timeLineList.accept(posts)
-        }, onFailure: { [weak self] _ in
-            self?.isError.accept(true)
-        }).disposed(by: disposeBag)
+//        postAPI.getFsData().subscribe(onSuccess: { [weak self] posts in
+//            self?.timeLineList.accept(posts)
+//        }, onFailure: { [weak self] _ in
+//            self?.isError.accept(true)
+//        }).disposed(by: disposeBag)
     }
     func didTapLikeButton() {
         print(#function)

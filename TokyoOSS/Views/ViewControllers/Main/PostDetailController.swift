@@ -14,7 +14,7 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var likeCountLabel: UILabel!
     private let disposeBag = DisposeBag()
     private var isLiked = false
-    private let viewModel = PostDetailViewModel()
+    private let viewModel = PostDetailViewModel(api: FetchPost())
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
