@@ -5,6 +5,7 @@ import EditorJSKit
 class TestViewController: UIViewController {
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private var blockList: EJBlocksList!
+    var data:Data?
     private lazy var renderer = EJCollectionRenderer(collectionView: collectionView)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +20,26 @@ class TestViewController: UIViewController {
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-        // Do any additional setup after loading the view.
+    }
+    init(data:Data) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func performNetworkTask() {
-        let path1 = Bundle.main.path(forResource: "EditorJSMock", ofType: "json")
-        print(path1)
-        guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else {
-            return }
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
-        
+//        let path1 = Bundle.main.path(forResource: "EditorJSMock", ofType: "json")
+//        print(path1)
+//        guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else {
+//            return }
+//        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
+        guard let data = data else {
+            return
+        }
+
         blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
 
         collectionView.reloadData()

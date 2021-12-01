@@ -36,7 +36,12 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
         
         collectionView.rx.itemSelected.subscribe(onNext: { indexPath in
             let index = indexPath.row
-            self.coordinator?.eventOccurred(tap: .push, vc: self)
+            let data = self.viewModel.dataList.value[index]
+            let string = String(data: data, encoding: .utf8)
+            print(string)
+//            let controller = TestViewController(data: data)
+//            self.present(controller, animated: true, completion: nil)
+//            self.coordinator?.eventOccurred(tap: .push, vc: self)
         }).disposed(by: disposeBag)
     }
     private func checkAuth() {

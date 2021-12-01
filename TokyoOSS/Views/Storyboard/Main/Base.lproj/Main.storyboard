@@ -102,6 +102,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLs-9X-rzr">
                                 <rect key="frame" x="60" y="242.5" width="10.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10.5" id="Oyy-aO-Yuw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,8 +117,8 @@
                                     <constraint firstAttribute="height" constant="30" id="tnW-uo-GOf"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-39-dS9">
-                                <rect key="frame" x="25" y="278.5" width="50" height="49"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-39-dS9">
+                                <rect key="frame" x="25" y="278" width="50" height="50"/>
                                 <color key="tintColor" red="0.25490196079999999" green="0.78823529410000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="GtQ-gm-OPN"/>
@@ -177,6 +180,7 @@
                             <constraint firstItem="c77-Pq-rII" firstAttribute="top" secondItem="1lK-Fd-iRf" secondAttribute="top" id="SOw-Ua-Skq"/>
                             <constraint firstItem="gcU-dJ-dau" firstAttribute="leading" secondItem="1lK-Fd-iRf" secondAttribute="leading" constant="25" id="cax-Qn-roj"/>
                             <constraint firstItem="YOD-39-dS9" firstAttribute="leading" secondItem="1lK-Fd-iRf" secondAttribute="leading" constant="25" id="d0T-0b-txl"/>
+                            <constraint firstItem="1lK-Fd-iRf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wLs-9X-rzr" secondAttribute="trailing" constant="304.5" id="gBm-Hn-8UV"/>
                             <constraint firstItem="SkG-ie-gTu" firstAttribute="leading" secondItem="1lK-Fd-iRf" secondAttribute="leading" constant="25" id="hDM-h9-QZ2"/>
                             <constraint firstItem="YWR-2g-muT" firstAttribute="leading" secondItem="1lK-Fd-iRf" secondAttribute="leading" constant="25" id="kEJ-bt-Qb9"/>
                             <constraint firstItem="gcU-dJ-dau" firstAttribute="top" secondItem="c77-Pq-rII" secondAttribute="bottom" constant="10" id="l7Y-dg-9dz"/>
@@ -334,6 +338,7 @@
                             <constraint firstItem="N6p-q2-ObV" firstAttribute="centerY" secondItem="oTh-mA-V4U" secondAttribute="centerY" id="deF-NY-6xd"/>
                             <constraint firstItem="y0r-02-eVj" firstAttribute="trailing" secondItem="4qb-Ym-zkX" secondAttribute="trailing" constant="30" id="jZW-yi-gNb"/>
                             <constraint firstItem="y0r-02-eVj" firstAttribute="trailing" secondItem="DK1-MA-8zd" secondAttribute="trailing" constant="30" id="l63-mf-Udv"/>
+                            <constraint firstItem="y0r-02-eVj" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N6p-q2-ObV" secondAttribute="trailing" symbolic="YES" id="qTa-aw-oYt"/>
                             <constraint firstItem="DK1-MA-8zd" firstAttribute="top" secondItem="oTh-mA-V4U" secondAttribute="bottom" constant="10" id="ssj-QR-t98"/>
                         </constraints>
                     </view>
@@ -423,7 +428,7 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="logo" width="500" height="500"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>

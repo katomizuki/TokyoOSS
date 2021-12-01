@@ -82,6 +82,7 @@ final class RegisterViewModel:RegisterViewModelType,RegisterViewModelInputs,Regi
                 if let error = error {
                     completion(.failure(error))
                 }
+                
                 completion(.success("success!"))
             }
         }

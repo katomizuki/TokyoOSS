@@ -26,6 +26,7 @@ final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,Time
     var postAPI:FetchPostProtocol!
     private let disposeBag = DisposeBag()
     var timeLineList = BehaviorRelay<[Blogs]>(value: [])
+    var dataList = BehaviorRelay<[Data]>(value: [])
     var likeButtonTap = PublishRelay<Void>()
     var isLike = false
     init(postAPI:FetchPostProtocol) {
@@ -34,6 +35,12 @@ final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,Time
             self.timeLineList.accept(blogs)
         }, onFailure: { error in
             self.isError.accept(true)
+        }).disposed(by: disposeBag)
+        
+        postAPI.getFsData().subscribe(onSuccess: { datas in
+            self.dataList.accept(datas)
+        }, onFailure: { error in
+            print(error)
         }).disposed(by: disposeBag)
     }
     func didTapCell() {
