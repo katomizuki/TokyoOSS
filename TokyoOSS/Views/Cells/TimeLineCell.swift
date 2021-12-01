@@ -30,7 +30,7 @@ final class TimeLineCell: UICollectionViewCell {
         guard let mainUrl = blog.mainImage else { return }
         contentLabel.text = blog.blocks[0].data.text
         if mainUrl == "" {
-            timeLineImageView.image = UIImage(systemName: "person.fill")
+            timeLineImageView.image = UIImage(named: "cover")
         } else {
             guard let url = URL(string: mainUrl) else { return }
             timeLineImageView.sd_setImage(with: url, completed: nil)

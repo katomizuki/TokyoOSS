@@ -65,7 +65,8 @@ final class LoginController: UIViewController,Coordinating {
                 case .success:
                     self?.coordinator?.eventOccurred(tap: .dismiss, vc: self!)
                 case .failure(let error):
-                    print(error)
+                    guard let errorMessage = self?.getErrorMessages(error: error as! NSError) else { return }
+                    self?.showAlert(message: errorMessage)
                 }
             }
         }).disposed(by: disposeBag)
