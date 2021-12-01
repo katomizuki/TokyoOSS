@@ -39,9 +39,9 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
             let data = self.viewModel.dataList.value[index]
             let string = String(data: data, encoding: .utf8)
             print(string)
-//            let controller = TestViewController(data: data)
-//            self.present(controller, animated: true, completion: nil)
-//            self.coordinator?.eventOccurred(tap: .push, vc: self)
+            let controller = TestViewController(data: data)
+            self.present(controller, animated: true, completion: nil)
+            self.coordinator?.eventOccurred(tap: .push, vc: self)
         }).disposed(by: disposeBag)
     }
     private func checkAuth() {

@@ -31,16 +31,17 @@ class TestViewController: UIViewController {
     }
     
     private func performNetworkTask() {
-//        let path1 = Bundle.main.path(forResource: "EditorJSMock", ofType: "json")
-//        print(path1)
-//        guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else {
-//            return }
-//        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
-        guard let data = data else {
-            return
-        }
+        let path1 = Bundle.main.path(forResource: "EditorJSMock", ofType: "json")
+        print(path1)
+        guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else {
+            return }
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
+        print(String(data: data, encoding: .utf8))
+//        guard let data = data else {
+//            return
+//        }
 
-        blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
+//        blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
 
         collectionView.reloadData()
     }

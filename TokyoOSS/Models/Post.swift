@@ -34,6 +34,12 @@ protocol FetchPostProtocol {
     func sendFsData(title:String,content:String,urlString:String,completion:@escaping (Result<String,Error>)->Void)
     func getBlogsData() -> Single<[Blogs]>
 }
+struct Editor:Codable {
+    let blocks:[Post]
+    var title:String
+    var version:String
+    var time:Int
+}
 struct FetchPost:FetchPostProtocol {
     func sendFsData(title:String,content:String,urlString:String,completion: @escaping (Result<String, Error>) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -53,10 +59,10 @@ struct FetchPost:FetchPostProtocol {
                     }
                     if let snapShot = querySnapshot {
                         var datas = [Data]()
-                        var blogs = [Blogs]()
+                        var blogs = [Editor]()
                         snapShot.documents.forEach { doc in
                             let data = doc.data()
-                            if let blog = try? Firestore.Decoder().decode(Blogs.self, from: data) {
+                            if let blog = try? Firestore.Decoder().decode(Editor.self, from: data) {
                                 blogs.append(blog)
                             }
                             if let encoder = try? JSONEncoder().encode(blogs) {
