@@ -63,7 +63,7 @@ final class LoginController: UIViewController,Coordinating {
             viewModel.inputs.login { result in
                 switch result {
                 case .success:
-                    self?.coordinator?.eventOccurred(tap: .perform, vc: self!)
+                    self?.coordinator?.eventOccurred(tap: .dismiss, vc: self!)
                 case .failure(let error):
                     print(error)
                 }

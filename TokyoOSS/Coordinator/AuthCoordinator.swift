@@ -9,7 +9,7 @@ final class AuthCoordinator:Coordinator {
     func eventOccurred(tap: EventTap,vc:UIViewController) {
         switch tap {
         case .dismiss:
-            print("dismiss")
+            vc.dismiss(animated: true, completion: nil)
         case .perform:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }

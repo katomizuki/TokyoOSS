@@ -12,7 +12,12 @@ final class TimeLineCoordinator:Coordinator {
         case .dismiss:
             print("dismiss")
         case .perform:
-            print("perform")
+            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: "LoginController") as? LoginController else { return }
+            controller.modalPresentationStyle = .fullScreen
+            DispatchQueue.main.async {
+                vc.present(controller, animated: true, completion: nil)
+            }
         case .push:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as? PostDetailController else { return }
