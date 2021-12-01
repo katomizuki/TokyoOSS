@@ -17,5 +17,6 @@ pod 'IQKeyboardManagerSwift'
 pod 'PKHUD'
 pod 'EditorJSKit'
 pod 'FirebaseFirestoreSwift'
+pod 'SDWebImage'
 
 end

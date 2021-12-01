@@ -77,8 +77,13 @@ final class RegisterViewModel:RegisterViewModelType,RegisterViewModelInputs,Regi
                 completion(.failure(error))
                 return
             }
-            completion(.success("success!"))
-//            let uid = result?.user.uid
+            guard let uid = result?.user.uid else { return }
+            FetchUser.sendUser(uid: uid, name: name, email: email) { error in
+                if let error = error {
+                    completion(.failure(error))
+                }
+                completion(.success("success!"))
+            }
         }
     }
 }

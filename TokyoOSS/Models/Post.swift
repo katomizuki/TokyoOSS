@@ -109,10 +109,7 @@ struct FetchPost:FetchPostProtocol {
                         snapShot.documents.forEach { doc in
                             let data = doc.data()
                             if let blog = try? Firestore.Decoder().decode(Blogs.self, from: data) {
-                                print(blog,"✊")
                                 blogs.append(blog)
-                            } else {
-                                print("⚡️")
                             }
                         }
                         observer(.success(blogs))

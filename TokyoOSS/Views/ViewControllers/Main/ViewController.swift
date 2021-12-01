@@ -12,17 +12,10 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     private let disposeBag = DisposeBag()
     var coordinator: Coordinator?
     private let viewModel = TimeLineViewModel(postAPI: FetchPost())
-    private let items = Observable.just(["😆","⚡️","✊"])
+//    private let items = Observable.just(["😆","⚡️","✊"])
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()
-        FetchPost().getBlogsData().subscribe(onSuccess: { blogs in
-            print(blogs)
-        }, onFailure: { error in
-            print(error)
-        }).disposed(by: disposeBag)
-
-
     }
     private func setupCollectionView() {
         let nib = TimeLineCell.nib()
@@ -34,13 +27,21 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     private func setupBinding() {
         print(#function)
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
-        items.bind(to: collectionView.rx.items(cellIdentifier: TimeLineCell.id, cellType: TimeLineCell.self)) { row, element, cell in
+//
+//        items.bind(to: collectionView.rx.items(cellIdentifier: TimeLineCell.id, cellType: TimeLineCell.self)) { row, element, cell in
+//        }.disposed(by: disposeBag)
+        
+        viewModel.timeLineList.bind(to: collectionView.rx.items(cellIdentifier: TimeLineCell.id, cellType: TimeLineCell.self)) {
+            row ,blog ,cell in
+            cell.configure(blog: blog)
         }.disposed(by: disposeBag)
         
         collectionView.rx.itemSelected.subscribe(onNext: { indexPath in
             let index = indexPath.row
             self.coordinator?.eventOccurred(tap: .push, vc: self)
         }).disposed(by: disposeBag)
+        
+        
     }
 }
 

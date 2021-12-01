@@ -8,7 +8,7 @@ protocol TimeLineViewModelInputs {
 protocol TimeLineViewModelOutputs {
     var cellTap:PublishRelay<Void> { get }
     var isError:BehaviorRelay<Bool> { get }
-    var timeLineList:BehaviorRelay<[Post]> { get }
+    var timeLineList:BehaviorRelay<[Blogs]> { get }
     var likeButtonTap:PublishRelay<Void> { get }
     var isLike:Bool { get }
     var currentImage:UIImage { get }
@@ -25,11 +25,16 @@ final class TimeLineViewModel:TimeLineViewModelType,TimeLineViewModelInputs,Time
     var isError = BehaviorRelay<Bool>(value: false)
     var postAPI:FetchPostProtocol!
     private let disposeBag = DisposeBag()
-    var timeLineList = BehaviorRelay<[Post]>(value: [])
+    var timeLineList = BehaviorRelay<[Blogs]>(value: [])
     var likeButtonTap = PublishRelay<Void>()
     var isLike = false
     init(postAPI:FetchPostProtocol) {
         self.postAPI = postAPI
+        postAPI.getBlogsData().subscribe(onSuccess: { blogs in
+            self.timeLineList.accept(blogs)
+        }, onFailure: { error in
+            self.isError.accept(true)
+        }).disposed(by: disposeBag)
     }
     func didTapCell() {
         outputs.cellTap.accept(())

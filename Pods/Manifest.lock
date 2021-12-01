@@ -326,6 +326,9 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
 
 DEPENDENCIES:
   - EditorJSKit
@@ -339,6 +342,7 @@ DEPENDENCIES:
   - RxDataSources (~> 5.0)
   - RxGesture
   - RxSwift (= 6.2.0)
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -368,6 +372,7 @@ SPEC REPOS:
     - RxGesture
     - RxRelay
     - RxSwift
+    - SDWebImage
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -396,7 +401,8 @@ SPEC CHECKSUMS:
   RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: 1ce0e6fc2ff27203e4d1c9ced4c690ddc930a957
+PODFILE CHECKSUM: 525e94bca6f2d5d44fe7d6b36de83fff01b103c3
 
 COCOAPODS: 1.11.2

@@ -34,4 +34,9 @@ struct FetchUser:FetchUserProtocol {
                 return Disposables.create()
             }
         }
+    static func sendUser(uid:String,name:String,email:String,compeltion:@escaping(Error?)->Void) {
+        let id = ref_user.document().documentID
+        let dic = ["uid":uid,"name":name,"email":email]
+        ref_user.document(id).setData(dic,completion: compeltion)
+    }
 }
