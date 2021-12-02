@@ -76,6 +76,25 @@ struct FetchPost:FetchPostProtocol {
                 return Disposables.create()
             }
         }
+    
+    func getDocumentsId()->Single<[String]>{
+        return Single<[String]>.create { (observer) -> Disposable in
+            ref_post.getDocuments() { snapShot, error in
+                guard let snapShot = snapShot else {
+                    return
+                }
+                if let error = error {
+                    observer(.failure(error))
+                    return
+                }
+                let snap = snapShot.documents
+                let array = snap.map({ $0.documentID })
+                observer(.success(array))
+                return
+            }
+            return Disposables.create()
+        }
+    }
     func changeContent(content:String)->[String] {
         let chars = Array(content)
         var message = [String]()

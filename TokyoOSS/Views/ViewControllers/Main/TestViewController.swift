@@ -1,87 +1,42 @@
-
-
 import UIKit
-import EditorJSKit
+import WebKit
+
 class TestViewController: UIViewController {
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private var blockList: EJBlocksList!
-    var data:Data?
-    private lazy var renderer = EJCollectionRenderer(collectionView: collectionView)
+    var webView:WKWebView!
+    override func loadView() {
+        // 2 WKWebViewConfiguration の生成
+              let webConfiguration = WKWebViewConfiguration()
+              // 3 WKWebView に Configuration を引き渡し initialize
+              webView = WKWebView(frame: .zero, configuration: webConfiguration)
+              // 4 WKUIDelegate の移譲先として self を登録
+              webView.uiDelegate = self
+              // 5 WKNavigationDelegate の移譲先として self を登録
+              webView.navigationDelegate = self
+              // 6 view に webView を割り当て
+        view = webView
+//        view.addSubview(webView)
+//        webView.anchor(top:view.topAnchor,leading: view.leadingAnchor,bottom: view.bottomAnchor,trailing: view.trailingAnchor,paddingBottom: 100)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        performNetworkTask()
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
-    }
-    init(data:Data) {
-        self.data = data
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func performNetworkTask() {
-        let path1 = Bundle.main.path(forResource: "EditorJSMock", ofType: "json")
-        print(path1)
-        guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else {
-            return }
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
-        print(String(data: data, encoding: .utf8))
-//        guard let data = data else {
-//            return
-//        }
+        // 7 URLオブジェクトを生成
+             let myURL = URL(string:"https://tokyo-oss-ad760.web.app")
+             // 8 URLRequestオブジェクトを生成
+             let myRequest = URLRequest(url: myURL!)
 
-//        blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
-
-        collectionView.reloadData()
+             // 9 URLを WebView にロード
+             webView.load(myRequest)
     }
+
+
 
 }
-extension TestViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        do {
-            return try renderer.size(forBlock: blockList.blocks[indexPath.section], itemIndex: indexPath.item, style: nil, superviewSize: collectionView.frame.size)
-        } catch {
-            return CGSize(width: 100, height: 100)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return renderer.spacing(forBlock: blockList.blocks[section])
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return renderer.insets(forBlock: blockList.blocks[section])
-    }
+extension TestViewController: WKUIDelegate {
+    // delegate
 }
-extension TestViewController: UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        guard let blockList = blockList else { return 0 }
-        return blockList.blocks.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return blockList.blocks[section].data.numberOfItems
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        do {
-            return try renderer.render(block: blockList.blocks[indexPath.section], indexPath: indexPath)
-        }
-        catch {
-            return UICollectionViewCell()
-        }
-    }
+
+// MARK: - 11 WKWebView WKNavigation delegate
+extension TestViewController: WKNavigationDelegate {
+    // delegate
 }

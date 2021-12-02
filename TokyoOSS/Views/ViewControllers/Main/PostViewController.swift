@@ -103,7 +103,6 @@ final class PostViewController: UIViewController,Coordinating {
             self.viewModel.inputs.post(image: self.postImageView.image!) { result in
                 switch result {
                 case .success:
-                    print("⚡️")
                     self.coordinator?.eventOccurred(tap: .dismiss, vc: self)
                 case .failure(let error):
                     print(error)
