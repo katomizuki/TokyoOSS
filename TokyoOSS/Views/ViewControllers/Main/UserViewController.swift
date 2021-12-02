@@ -43,10 +43,11 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
             cell.selectionStyle = .none
         }.disposed(by: disposeBag)
 
+
         userTableView.rx.itemSelected
-            .subscribe(onNext: { indexPath in
+            .subscribe(onNext: { [weak self] indexPath in
               
-                guard let cell = self.userTableView.cellForRow(at: indexPath) as? ArticleCell else { return }
+                guard let cell = self?.userTableView.cellForRow(at: indexPath) as? ArticleCell else { return }
 
                 let message = cell.publicLabel.text == "公開中" ? "下書き":"公開中"
                 let showVC = UIAlertController(title: "「\(cell.publicLabel.text ?? "")」から状態を変更しますか？", message: "", preferredStyle: .alert)
@@ -55,7 +56,7 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
                     cell.publicLabel.text = message
                 })
                 showVC.addAction(alertAction)
-                self.present(showVC, animated: true, completion: nil)
+                self?.present(showVC, animated: true, completion: nil)
             }).disposed(by: disposeBag)
         
         viewModel.outputs.isCompleted.subscribe(onNext: { _ in
