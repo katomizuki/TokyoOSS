@@ -29,18 +29,28 @@
                             <constraint firstAttribute="height" constant="60" id="LiE-NL-3I4"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEP-V1-4lL">
+                        <rect key="frame" x="155" y="76" width="85" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="bDg-7w-Uu9" secondAttribute="trailing" constant="10" id="5ZR-yu-C3t"/>
                     <constraint firstItem="bDg-7w-Uu9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="APX-tH-eHf"/>
                     <constraint firstItem="bDg-7w-Uu9" firstAttribute="leading" secondItem="oTD-aQ-0cz" secondAttribute="trailing" constant="14.5" id="Qxh-kG-8WN"/>
+                    <constraint firstItem="LEP-V1-4lL" firstAttribute="centerX" secondItem="bDg-7w-Uu9" secondAttribute="centerX" id="SIJ-s9-yz4"/>
+                    <constraint firstItem="LEP-V1-4lL" firstAttribute="top" secondItem="bDg-7w-Uu9" secondAttribute="bottom" constant="10" id="Uyb-mE-yM9"/>
                     <constraint firstItem="oTD-aQ-0cz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jFi-H6-2Sh"/>
                     <constraint firstItem="oTD-aQ-0cz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tvC-pv-BGl"/>
+                    <constraint firstItem="LEP-V1-4lL" firstAttribute="width" secondItem="bDg-7w-Uu9" secondAttribute="width" multiplier="0.37694" id="uY4-21-UID"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="blogImageView" destination="oTD-aQ-0cz" id="Azf-uV-iBs"/>
+                <outlet property="publicLabel" destination="LEP-V1-4lL" id="sms-mK-e1c"/>
                 <outlet property="titleLabel" destination="bDg-7w-Uu9" id="jGB-os-hWU"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="120.20089285714285"/>

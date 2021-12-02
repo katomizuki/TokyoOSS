@@ -43,4 +43,15 @@ final class UserViewModel:UserViewModelType, UserViewModelInputs, UserViewModelO
             self?.isError.accept(true)
         }).disposed(by: disposeBag)
     }
+    func didTapCell(index:Int) {
+        let blog = blogs.value[index]
+        postAPI.updateFsData(blogs: blog) { result in
+            switch result {
+            case .success:
+                print("success")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

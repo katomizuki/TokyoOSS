@@ -23,7 +23,7 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
     private func setupTableView() {
         let nib = ArticleCell.nib()
         userTableView.register(nib, forCellReuseIdentifier: ArticleCell.id)
-        userTableView.rowHeight = 60
+        userTableView.rowHeight = 100
         setupBinding()
     }
     private func setupUI() {
@@ -44,8 +44,10 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
 
         userTableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
-                self.coordinator?.eventOccurred(tap: .push, vc: self)
+                viewModel.didTapCell(index: indexPath.row)
+//                self.coordinator?.eventOccurred(tap: .push, vc: self)
             }).disposed(by: disposeBag)
     }
+    
 }
 
