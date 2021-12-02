@@ -8,13 +8,15 @@ protocol UserViewModelOutputs {
     var isError:BehaviorRelay<Bool> { get }
     var user:PublishRelay<User> { get }
     var blogs:BehaviorRelay<[Blogs]> { get }
+    var isCompleted:PublishRelay<Void> { get }
 }
 protocol UserViewModelType {
     var inputs:UserViewModelInputs { get }
     var outputs:UserViewModelOutputs { get }
+    
 }
 final class UserViewModel:UserViewModelType, UserViewModelInputs, UserViewModelOutputs {
-    
+    var isCompleted = PublishRelay<Void>()
     var inputs: UserViewModelInputs { return self }
     var outputs: UserViewModelOutputs { return self }
     var userAPI:FetchUserProtocol!
@@ -45,13 +47,13 @@ final class UserViewModel:UserViewModelType, UserViewModelInputs, UserViewModelO
     }
     func didTapCell(index:Int) {
         let blog = blogs.value[index]
-        postAPI.updateFsData(blogs: blog) { result in
-            switch result {
-            case .success:
-                print("success")
-            case .failure(let error):
+        postAPI.updateFsData(blogs: blog) { error in
+            if let error = error {
                 print(error)
+                return
             }
+            self.isCompleted.accept(())
         }
-    }
+}
+
 }

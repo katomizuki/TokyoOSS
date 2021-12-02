@@ -40,13 +40,29 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
         viewModel.blogs.bind(to: userTableView.rx.items(cellIdentifier: ArticleCell.id, cellType: ArticleCell.self)) {
             row , blog ,cell in
             cell.configure(blog: blog)
+            cell.selectionStyle = .none
         }.disposed(by: disposeBag)
 
         userTableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
-                viewModel.didTapCell(index: indexPath.row)
-//                self.coordinator?.eventOccurred(tap: .push, vc: self)
+              
+                guard let cell = self.userTableView.cellForRow(at: indexPath) as? ArticleCell else { return }
+
+                let message = cell.publicLabel.text == "公開中" ? "下書き":"公開中"
+                let showVC = UIAlertController(title: "「\(cell.publicLabel.text ?? "")」から状態を変更しますか？", message: "", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    viewModel.didTapCell(index: indexPath.row)
+                    cell.publicLabel.text = message
+                })
+                showVC.addAction(alertAction)
+                self.present(showVC, animated: true, completion: nil)
             }).disposed(by: disposeBag)
+        
+        viewModel.outputs.isCompleted.subscribe(onNext: { _ in
+        } ,onError: { error in
+            print(error)
+        }).disposed(by: disposeBag)
+
     }
     
 }

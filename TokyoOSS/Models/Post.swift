@@ -14,6 +14,7 @@ struct Blogs:Codable {
     var uid:String
     var lat:Double?
     var lng:Double?
+    var docId:String?
 }
 //[["data":["text":"アイウエオ","level":1],"id":"mizuki","type":"paragraph"],["data":["text":"アイウエオ","level":1],"id":"mizuki","type":"paragraph"]]
 struct Post:Codable {
@@ -38,7 +39,7 @@ protocol FetchPostProtocol {
     func sendFsData(title:String,content:String,urlString:String,lat:Double,lng:Double,completion: @escaping (Result<String, Error>) -> Void)
     func getBlogsData() -> Single<[Blogs]>
     func getMyBlogs() -> Single<[Blogs]>
-    func updateFsData(blogs:Blogs,completion: @escaping (Result<String, Error>) -> Void)
+    func updateFsData(blogs:Blogs,completion:@escaping (Error?)->Void)
 }
 struct Editor:Codable {
     let blocks:[Post]
@@ -49,21 +50,19 @@ struct Editor:Codable {
 struct FetchPost:FetchPostProtocol {
     func sendFsData(title:String,content:String,urlString:String,lat:Double,lng:Double,completion: @escaping (Result<String, Error>) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        let id = ref_ios.document().documentID
+        let id = ref_post.document().documentID
         let messages = self.changeContent(content: content)
         let anyies = self.changeDic(arr: messages)
         let now = Date().timeIntervalSince1970 * 1000000
-        let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":urlString,"version":"2.22.2","time":now,"isPublic":true,"uid":uid,"lat":lat,"lng":lng]
+        let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":urlString,"version":"2.22.2","time":now,"isPublic":true,"uid":uid,"lat":lat,"lng":lng,"docId":id]
         ref_post.document(id).setData(dic)
     }
-    func updateFsData(blogs:Blogs,completion: @escaping (Result<String, Error>) -> Void) {
+    func updateFsData(blogs:Blogs,completion:@escaping (Error?)->Void) {
 //        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        let id = b
-    
+        guard let id = blogs.docId else { return }
         let bool = blogs.isPublic ?? true
         let flag = !bool
-        
-//        ref_post.document(id).updateData(["isPublic" : flag])
+        ref_post.document(id).updateData(["isPublic" : flag], completion: completion)
     }
     
     func getFsData() -> Single<[Data]> {
