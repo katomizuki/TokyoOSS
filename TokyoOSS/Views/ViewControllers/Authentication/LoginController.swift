@@ -82,6 +82,5 @@ final class LoginController: UIViewController,Coordinating {
         passwordDeleteButton.rx.tap.asDriver().drive(onNext: { [weak self] _ in
             self?.passwordTextField.text = ""
         }).disposed(by: disposeBag)
-
     }
 }

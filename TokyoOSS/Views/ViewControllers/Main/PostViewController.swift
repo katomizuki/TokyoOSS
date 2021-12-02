@@ -135,8 +135,6 @@ extension PostViewController:CLLocationManagerDelegate {
         locations.last.map {
             let latitude = $0.coordinate.latitude
             let longitude =  $0.coordinate.longitude
-            print(latitude,"⚡️")
-            print(longitude,"🍬")
             self.lat = "\(latitude)"
             self.lon = "\(longitude)"
         }
