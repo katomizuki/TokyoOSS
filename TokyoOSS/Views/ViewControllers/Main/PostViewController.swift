@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import RxGesture
 import PKHUD
-import EditorJSKit
+import CoreLocation
 final class PostViewController: UIViewController,Coordinating {
     // MARK: - Properties
     @IBOutlet private weak var pictureButton: UIButton!
@@ -38,7 +38,9 @@ final class PostViewController: UIViewController,Coordinating {
     private let disposeBag = DisposeBag()
     private let picker = UIImagePickerController()
     var coordinator: Coordinator?
-  
+    private let locationManager = CLLocationManager()
+    var lat = String()
+    var lon = String()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,11 @@ final class PostViewController: UIViewController,Coordinating {
         setupUI()
         coordinator = MainCoordinator()
         picker.delegate = self
-        
+        locationManager.delegate = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        locationManager.startUpdatingLocation()
     }
     private func setupUI() {
         textView.addSubview(placeholderLabel)
@@ -123,3 +129,29 @@ extension PostViewController:UIImagePickerControllerDelegate,UINavigationControl
     }
 }
 
+
+extension PostViewController:CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locations.last.map {
+            let latitude = $0.coordinate.latitude
+            let longitude =  $0.coordinate.longitude
+            print(latitude,"⚡️")
+            print(longitude,"🍬")
+            self.lat = "\(latitude)"
+            self.lon = "\(longitude)"
+        }
+    }
+    func locationManager(_ manager: CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus) {
+             switch status {
+             case .notDetermined:
+                 manager.requestWhenInUseAuthorization()
+             case .restricted, .denied:
+                 break
+             case .authorizedAlways, .authorizedWhenInUse:
+                 manager.startUpdatingLocation()
+                 break
+             default:
+                 break
+             }
+         }
+}

@@ -4,6 +4,7 @@ import RxCocoa
 import RxDataSources
 import FirebaseAuth
 import WebKit
+import CoreLocation
 final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout! {
         didSet {
@@ -24,7 +25,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
         // 5 WKNavigationDelegate の移譲先として self を登録
         webView.navigationDelegate = self
         // 6 view に webView を割り当て
-  view = webView
+        view = webView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,3 +95,4 @@ extension ViewController: WKUIDelegate {
 extension ViewController: WKNavigationDelegate {
     // delegate
 }
+
