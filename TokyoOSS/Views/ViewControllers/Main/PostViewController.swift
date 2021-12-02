@@ -137,6 +137,8 @@ extension PostViewController:CLLocationManagerDelegate {
             let longitude =  $0.coordinate.longitude
             self.lat = "\(latitude)"
             self.lon = "\(longitude)"
+            viewModel.lat = latitude
+            viewModel.lng = longitude
         }
     }
     func locationManager(_ manager: CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus) {

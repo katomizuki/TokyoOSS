@@ -12,7 +12,6 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
     @IBOutlet private weak var userTableView: UITableView!
     private let disposeBag = DisposeBag()
     var coordinator: Coordinator?
-    private let items = Observable.just(["😆","⚡️",""])
     private let userView = UserHeaderView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,17 +35,20 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
     private func setupBinding() {
         
         userTableView.rx.setDelegate(self).disposed(by: disposeBag)
-        items.bind(to: userTableView.rx.items(cellIdentifier: ArticleCell.id, cellType: ArticleCell.self)) { row,element,cell in
-            
-        }.disposed(by: disposeBag)
         
+      
+
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let viewModel = UserViewModel(userAPI: FetchUser(), userId: userId, blogsAPI: FetchPost())
+        viewModel.blogs.bind(to: userTableView.rx.items(cellIdentifier: ArticleCell.id, cellType: ArticleCell.self)) {
+            row , blog ,cell in
+            cell.titleLabel.text = blog.title
+        }.disposed(by: disposeBag)
+
         userTableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
                 self.coordinator?.eventOccurred(tap: .push, vc: self)
             }).disposed(by: disposeBag)
-
-        guard let userId = Auth.auth().currentUser?.uid else { return }
-        let viewModel = UserViewModel(userAPI: FetchUser(), userId: userId)
     }
 }
 

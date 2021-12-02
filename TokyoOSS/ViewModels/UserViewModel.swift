@@ -7,6 +7,7 @@ protocol UserViewModelInputs {
 protocol UserViewModelOutputs {
     var isError:BehaviorRelay<Bool> { get }
     var user:PublishRelay<User> { get }
+    var blogs:BehaviorRelay<[Blogs]> { get }
 }
 protocol UserViewModelType {
     var inputs:UserViewModelInputs { get }
@@ -17,13 +18,22 @@ final class UserViewModel:UserViewModelType, UserViewModelInputs, UserViewModelO
     var inputs: UserViewModelInputs { return self }
     var outputs: UserViewModelOutputs { return self }
     var userAPI:FetchUserProtocol!
+    var postAPI:FetchPostProtocol!
     private let disposeBag = DisposeBag()
     var userId:String?
     var isError = BehaviorRelay<Bool>(value: false)
     var user = PublishRelay<User>()
-    init(userAPI:FetchUserProtocol,userId:String) {
+    var blogs = BehaviorRelay<[Blogs]>(value: [])
+    init(userAPI:FetchUserProtocol,userId:String,blogsAPI:FetchPostProtocol) {
         self.userAPI = userAPI
         self.userId = userId
+        self.postAPI = blogsAPI
+       postAPI.getMyBlogs().subscribe(onSuccess: { blogs in
+           print(blogs,"⚡️")
+            self.blogs.accept(blogs)
+        }, onFailure: { error in
+            self.isError.accept(true)
+        }).disposed(by: disposeBag)
     }
     func showUser() {
         print(#function)

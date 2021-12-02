@@ -154,15 +154,6 @@
                                     <constraint firstAttribute="height" constant="50" id="qto-gw-2e4"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-MM-eNA">
-                                <rect key="frame" x="269" y="232" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="eO7-pR-3HZ" kind="show" id="erh-bA-Eik"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1lK-Fd-iRf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

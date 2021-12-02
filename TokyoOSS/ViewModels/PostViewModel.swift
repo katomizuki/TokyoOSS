@@ -21,7 +21,8 @@ protocol PostViewModelType {
     var outputs:PostViewModelOutputs { get }
 }
 final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOutputs {
-    
+    var lat:Double = 0
+    var lng:Double = 0
     var titleTextField = BehaviorRelay<String>(value: "")
     var contentTextView = BehaviorRelay<String>(value: "")
     var inputs: PostViewModelInputs { return self }
@@ -76,7 +77,7 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
         StorageService.upload(image: image) { result in
             switch result {
             case .success(let urlstring):
-                self.api.sendFsData(title: title, content: content, urlString: urlstring) { result in
+                self.api.sendFsData(title: title, content: content, urlString: urlstring,lat: self.lat,lng: self.lng) { result in
                     switch result {
                     case .success:
                         completion(.success("success"))
