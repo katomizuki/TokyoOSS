@@ -40,10 +40,12 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     }
     private func setupNav() {
         let item = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(didTapRightButton))
+        item.tintColor = appColor
         navigationItem.rightBarButtonItem = item
     }
     @objc private func didTapRightButton() {
         print(#function)
+        performSegue(withIdentifier: "post", sender: nil)
     }
     private func setupCollectionView() {
         let nib = TimeLineCell.nib()

@@ -73,7 +73,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="BLA-27-w1i">
                     <connections>
-                        <segue destination="Uyb-Ad-0LL" kind="presentation" modalPresentationStyle="fullScreen" id="r7u-tA-VJI"/>
+                        <segue destination="Uyb-Ad-0LL" kind="presentation" identifier="post" modalPresentationStyle="fullScreen" id="r7u-tA-VJI"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -423,7 +423,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZlY-5J-UYH"/>
+        <segue reference="JGV-o6-1mz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
