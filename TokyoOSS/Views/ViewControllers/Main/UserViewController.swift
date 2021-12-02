@@ -35,14 +35,11 @@ final class UserViewController: UIViewController,Coordinating, UIScrollViewDeleg
     private func setupBinding() {
         
         userTableView.rx.setDelegate(self).disposed(by: disposeBag)
-        
-      
-
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let viewModel = UserViewModel(userAPI: FetchUser(), userId: userId, blogsAPI: FetchPost())
         viewModel.blogs.bind(to: userTableView.rx.items(cellIdentifier: ArticleCell.id, cellType: ArticleCell.self)) {
             row , blog ,cell in
-            cell.titleLabel.text = blog.title
+            cell.configure(blog: blog)
         }.disposed(by: disposeBag)
 
         userTableView.rx.itemSelected
