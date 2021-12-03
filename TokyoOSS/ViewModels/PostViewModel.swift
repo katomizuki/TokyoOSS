@@ -48,6 +48,7 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
     var api:FetchPostProtocol!
     var userAPI:FetchUserProtocol!
     var user = PublishRelay<User>()
+    var userdata:User?
     init(tap:Signal<Void>,openTap:Signal<Void>,pictureTap:Signal<Void>,api:FetchPostProtocol,userAPI:FetchUserProtocol) {
         self.api = api
         tap.emit(onNext: { _ in
@@ -66,6 +67,7 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
         guard let uid = Auth.auth().currentUser?.uid else { return }
         userAPI.fetchUser(userId: uid).subscribe(onSuccess: { user in
             self.user.accept(user)
+            self.userdata = user
         }, onFailure: { error in
             print(error)
         }).disposed(by: disposeBag)
@@ -86,10 +88,10 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
     func post(image:UIImage,completion:@escaping(Result<String,Error>)->Void) {
        let title = titleTextField.value
        let content = contentTextView.value
+        guard let user = userdata else { return }
         StorageService.upload(image: image) { result in
             switch result {
             case .success(let urlstring):
-                self.user.subscribe(onNext: { user in
                     self.api.sendFsData(user:user,title: title, content: content, urlString: urlstring,lat: self.lat,lng: self.lng) { result in
                         switch result {
                         case .success:
@@ -98,7 +100,6 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
                             completion(.failure(error))
                         }
                     }
-                }).disposed(by: self.disposeBag)
             case .failure(let error):
                 completion(.failure(error))
             }

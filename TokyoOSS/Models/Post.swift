@@ -54,6 +54,7 @@ struct FetchPost:FetchPostProtocol {
         let messages = self.changeContent(content: content)
         let anyies = self.changeDic(arr: messages)
         let now = Date().timeIntervalSince1970 * 10000000
+        print("🟪")
         let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":urlString,"version":"2.22.2","time":now,"isPublic":true,"uid":uid,"lat":lat,"lng":lng,"docId":id,"icon":user.icon,"anchor":user.name]
         ref_post.document(id).setData(dic)
     }
