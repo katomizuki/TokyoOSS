@@ -3,7 +3,7 @@ import UIKit
 final class UserHeaderView: UIView {
 
     @IBOutlet weak var userImageView: UIImageView!
-    
+    @IBOutlet weak var userLabel: UILabel!
     override init(frame: CGRect) {
         super.init(frame: .zero)
         let view = UINib(nibName: "UserHeaderView", bundle: nil).instantiate(withOwner: self, options: nil).first as! UIView

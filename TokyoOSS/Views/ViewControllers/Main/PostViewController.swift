@@ -64,7 +64,7 @@ final class PostViewController: UIViewController,Coordinating {
     }
     private func setupBinding() {
         viewModel = PostViewModel(tap: dismissButton.rx.tap.asSignal(),
-                                  openTap: postButton.rx.tap.asSignal(),pictureTap:pictureButton.rx.tap.asSignal(),api: FetchPost())
+                                  openTap: postButton.rx.tap.asSignal(),pictureTap:pictureButton.rx.tap.asSignal(),api: FetchPost(),userAPI: FetchUser())
         
         titleTextField.rx.text.asDriver().drive(onNext: { [weak self] text in
             self?.viewModel.inputs.titleTextField.accept(text ?? "")

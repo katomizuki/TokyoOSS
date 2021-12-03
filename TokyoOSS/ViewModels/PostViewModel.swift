@@ -2,6 +2,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RxDataSources
+import FirebaseAuth
 protocol PostViewModelInputs {
     var titleTextField:BehaviorRelay<String> { get }
     var contentTextView:BehaviorRelay<String> { get }
@@ -15,6 +16,7 @@ protocol PostViewModelOutputs {
     var titleBorderColor:CGColor { get }
     var textViewBorderColor:CGColor { get }
     var textViewCount:String { get }
+    var user:PublishRelay<User> { get }
 }
 protocol PostViewModelType {
     var inputs:PostViewModelInputs { get }
@@ -44,7 +46,9 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
         return "\(contentTextView.value.count) 文字"
     }
     var api:FetchPostProtocol!
-    init(tap:Signal<Void>,openTap:Signal<Void>,pictureTap:Signal<Void>,api:FetchPostProtocol) {
+    var userAPI:FetchUserProtocol!
+    var user = PublishRelay<User>()
+    init(tap:Signal<Void>,openTap:Signal<Void>,pictureTap:Signal<Void>,api:FetchPostProtocol,userAPI:FetchUserProtocol) {
         self.api = api
         tap.emit(onNext: { _ in
             self.didTapDismissButton()
@@ -56,6 +60,14 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
         
         pictureTap.emit(onNext:{ _ in
             self.didTapPictureButton()
+        }).disposed(by: disposeBag)
+        
+        self.userAPI = userAPI
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        userAPI.fetchUser(userId: uid).subscribe(onSuccess: { user in
+            self.user.accept(user)
+        }, onFailure: { error in
+            print(error)
         }).disposed(by: disposeBag)
 
     }
@@ -77,14 +89,16 @@ final class PostViewModel:PostViewModelType,PostViewModelInputs,PostViewModelOut
         StorageService.upload(image: image) { result in
             switch result {
             case .success(let urlstring):
-                self.api.sendFsData(title: title, content: content, urlString: urlstring,lat: self.lat,lng: self.lng) { result in
-                    switch result {
-                    case .success:
-                        completion(.success("success"))
-                    case .failure(let error):
-                        completion(.failure(error))
+                self.user.subscribe(onNext: { user in
+                    self.api.sendFsData(user:user,title: title, content: content, urlString: urlstring,lat: self.lat,lng: self.lng) { result in
+                        switch result {
+                        case .success:
+                            completion(.success("success"))
+                        case .failure(let error):
+                            completion(.failure(error))
+                        }
                     }
-                }
+                }).disposed(by: self.disposeBag)
             case .failure(let error):
                 completion(.failure(error))
             }

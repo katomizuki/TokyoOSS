@@ -1,8 +1,9 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 protocol UserViewModelInputs {
-    
+    func saveImage(image:UIImage,completion:@escaping (Error?)->Void)
 }
 protocol UserViewModelOutputs {
     var isError:BehaviorRelay<Bool> { get }
@@ -36,6 +37,12 @@ final class UserViewModel:UserViewModelType, UserViewModelInputs, UserViewModelO
         }, onFailure: { error in
             self.isError.accept(true)
         }).disposed(by: disposeBag)
+        userAPI.fetchUser(userId: userId).subscribe(onSuccess: { [weak self] user in
+            print(user,"✊")
+            self?.user.accept(user)
+        }, onFailure: { [weak self] error in
+            self?.isError.accept(true)
+        }).disposed(by: disposeBag)
     }
     func showUser() {
         print(#function)
@@ -54,6 +61,17 @@ final class UserViewModel:UserViewModelType, UserViewModelInputs, UserViewModelO
             }
             self.isCompleted.accept(())
         }
-}
+    }
+    func saveImage(image:UIImage,completion:@escaping (Error?)->Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        StorageService.upload(image: image) { result in
+            switch result {
+            case .success(let urlString):
+                self.userAPI.updateIcon(uid: uid, iconUrl: urlString,completion: completion)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 
 }

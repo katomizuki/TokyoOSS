@@ -36,7 +36,7 @@ struct File:Codable {
 }
 protocol FetchPostProtocol {
     func getFsData() -> Single<[Data]>
-    func sendFsData(title:String,content:String,urlString:String,lat:Double,lng:Double,completion: @escaping (Result<String, Error>) -> Void)
+    func sendFsData(user:User,title:String,content:String,urlString:String,lat:Double,lng:Double,completion: @escaping (Result<String, Error>) -> Void)
     func getBlogsData() -> Single<[Blogs]>
     func getMyBlogs() -> Single<[Blogs]>
     func updateFsData(blogs:Blogs,completion:@escaping (Error?)->Void)
@@ -48,13 +48,13 @@ struct Editor:Codable {
     var time:Int
 }
 struct FetchPost:FetchPostProtocol {
-    func sendFsData(title:String,content:String,urlString:String,lat:Double,lng:Double,completion: @escaping (Result<String, Error>) -> Void) {
+    func sendFsData(user:User,title:String,content:String,urlString:String,lat:Double,lng:Double,completion: @escaping (Result<String, Error>) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let id = ref_post.document().documentID
         let messages = self.changeContent(content: content)
         let anyies = self.changeDic(arr: messages)
         let now = Date().timeIntervalSince1970 * 10000000
-        let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":urlString,"version":"2.22.2","time":now,"isPublic":true,"uid":uid,"lat":lat,"lng":lng,"docId":id]
+        let dic:[String:Any] = ["blocks":anyies,"title":"\(title)","mainImage":urlString,"version":"2.22.2","time":now,"isPublic":true,"uid":uid,"lat":lat,"lng":lng,"docId":id,"icon":user.icon,"anchor":user.name]
         ref_post.document(id).setData(dic)
     }
     func updateFsData(blogs:Blogs,completion:@escaping (Error?)->Void) {
