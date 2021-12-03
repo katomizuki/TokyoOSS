@@ -2,6 +2,7 @@ import UIKit
 import Firebase
 import IQKeyboardManagerSwift
 import EditorJSKit
+import FirebaseAuth
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -12,6 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         setupEJStyles()
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print(error)
+        }
         return true
     }
 

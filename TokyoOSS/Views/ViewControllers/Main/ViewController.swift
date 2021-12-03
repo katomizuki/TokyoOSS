@@ -29,6 +29,8 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        coordinator = TimeLineCoordinator()
+        coordinator?.navigationController = self.navigationController
 //        setupCollectionView()
         let myURL = URL(string:"https://tokyo-oss-ad760.web.app")
         // 8 URLRequestオブジェクトを生成
@@ -51,8 +53,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
     private func setupCollectionView() {
         let nib = TimeLineCell.nib()
         collectionView.register(nib, forCellWithReuseIdentifier: TimeLineCell.id)
-        coordinator = TimeLineCoordinator()
-        coordinator?.navigationController = self.navigationController
+       
         setupBinding()
     }
     private func setupBinding() {
@@ -75,7 +76,9 @@ final class ViewController: UIViewController, UIScrollViewDelegate,Coordinating 
         }).disposed(by: disposeBag)
     }
     private func checkAuth() {
+        
         if Auth.auth().currentUser == nil {
+            print("アイウエオ")
             coordinator?.eventOccurred(tap: .perform, vc: self)
         } 
     }

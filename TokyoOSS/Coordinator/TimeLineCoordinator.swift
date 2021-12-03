@@ -12,11 +12,13 @@ final class TimeLineCoordinator:Coordinator {
         case .dismiss:
             print("dismiss")
         case .perform:
+            print("あああ")
             let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "LoginController") as? LoginController else { return }
-            controller.modalPresentationStyle = .fullScreen
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
             DispatchQueue.main.async {
-                vc.present(controller, animated: true, completion: nil)
+                vc.present(nav, animated: true, completion: nil)
             }
         case .push:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
